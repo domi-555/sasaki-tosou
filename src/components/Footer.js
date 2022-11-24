@@ -31,9 +31,9 @@ const Footer = () => {
                                 <ul>
                                     <li><Link to="/gaiheki/">外壁塗装</Link></li>
                                     <li><Link to="/yane/">屋根塗装</Link></li>
-                                    <li><Link to="/yane-fuki/">屋根葺替</Link></li>
-                                    <li><Link to="/yane-cover/">屋根カバー工法</Link></li>
-                                    <li><Link to="/amamori/">雨漏修理</Link></li>
+                                    <li><Link to="/yanefuki/">屋根葺替</Link></li>
+                                    <li><Link to="/yanecover/">屋根カバー工法</Link></li>
+                                    <li><Link to="/drainspout/">雨樋の交換</Link></li>
                                     <li><Link to="/exterior/">エクステリア</Link></li>
                                 </ul>
                             </div>
@@ -42,7 +42,7 @@ const Footer = () => {
                                 <ul>
                                     <li><Link to="/case/">施工事例一覧</Link></li>
                                     <li><Link to="/workflow/">施工の流れ</Link></li>
-                                    <li><Link to="/karucera-works/">カルセラリフォーム施工例</Link></li>
+                                    <li><Link to="/karucera_works/">カルセラリフォーム施工例</Link></li>
                                 </ul>
                             </div>
                             <div className="foot_link">
@@ -51,7 +51,7 @@ const Footer = () => {
                                     <li><Link to="/#souba_check">最短10秒無料相場チェック</Link></li>
                                     <li><Link to="/leak/">雨漏り無料診断</Link></li>
                                     <li><Link to="/drone/">ドローン診断</Link></li>
-                                    <li><Link to="/color-simulation/">カラーシミュレーション</Link></li>
+                                    <li><Link to="/color_simulation/">カラーシミュレーション</Link></li>
                                     <li><Link to="/contact_page/">お問い合わせ</Link></li>
                                     <li><Link to="https://lin.ee/HR9JB00">ライン見積もり</Link></li>
                                 </ul>

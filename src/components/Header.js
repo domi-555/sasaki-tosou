@@ -1,11 +1,7 @@
 import React from 'react'
 import { Link } from "gatsby"
 
-
 import "@fortawesome/fontawesome-svg-core/styles.css"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faChevronUp } from '@fortawesome/free-solid-svg-icons'
-import { StaticImage } from "gatsby-plugin-image"
 
 const Header = () => {
     return (
@@ -28,7 +24,7 @@ const Header = () => {
                                         <li><Link to="/voice/">お客様の声</Link></li>
                                         <li><Link to="/leak/">雨漏り診断</Link></li>
                                         <li><Link to="/drone/">ドローン診断</Link></li>
-                                        <li><Link to="/color-simulation/">カラーシミュレーション</Link></li>
+                                        <li><Link to="/color_simulation/">カラーシミュレーション</Link></li>
                                         <li><Link to="/contact_page/">お問い合わせ</Link></li>
                                     </ul>
                                 </li>

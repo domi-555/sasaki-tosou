@@ -2,11 +2,11 @@ import  React from "react"
 import { Link } from "gatsby"
 
 import Layout from "../components/Layout"
-import SEO from "../components/Seo"
+import Seo from "../components/Seo"
 
 const UsingDSG = () => (
   <Layout>
-    <SEO title="Using DSG" />
+    <Seo title="Using DSG" />
     <h1>
       Hello from a <b>DSG Page</b>
     </h1>

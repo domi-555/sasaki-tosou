@@ -48,7 +48,7 @@ module.exports = {
       },
     },
     
-    `gatsby-plugin-react-helmet`,
+    
 
     {
       resolve: "gatsby-plugin-anchor-links",
@@ -57,6 +57,24 @@ module.exports = {
       }
     },
     
+    {
+      resolve: `gatsby-plugin-scroll-reveal`,
+      options: {
+          threshold: 1, // Percentage of an element's area that needs to be visible to launch animation アニメーションを起動するために必要な、要素の表示領域の割合。
+          once: true, // Defines if animation needs to be launched once アニメーションを一回だけ起動する必要があるかどうかを定義する
+          disable: false, // Flag for disabling animations アニメーションを無効にするフラグ
+          
+          // Advanced Options
+          selector: '[data-sal]', // Selector of the elements to be animated アニメーションする要素のセレクタ
+          animateClassName: 'sal-animate', // Class name which triggers animation アニメーションのトリガーとなるクラス名。
+          disabledClassName: 'sal-disabled', // Class name which defines the disabled state 無効状態を定義するクラス名
+          rootMargin: '0% 50%', // Corresponds to root's bounding box margin ルートのバウンディングボックスマージンに対応する
+          enterEventName: 'sal:in', // Enter event name イベント名の入力
+          exitEventName: 'sal:out', // Exit event name 終了イベント名
+      }
+    },
+
+    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
   ],
 }

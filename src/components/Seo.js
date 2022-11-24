@@ -27,6 +27,7 @@ const SEO = ({ title, description, image, article }) => {
       <html lang="ja" />
       <body id="pagetop" />
       <title>{seo.title}</title>
+      <meta name="keywords" content="佐々木塗装,外壁塗装,広島,外壁塗装 広島,広島 外壁塗装,屋根塗装,塗り替え,一級塗装技能士在籍,安佐北区,東区,西区,南区,安芸区,佐伯区,安佐南区,海田町,府中町,熊野町,坂町,五日市,廿日市市,東広島市,安芸高田市" />
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
       {seo.url && <meta property="og:url" content={seo.url} />}
@@ -45,6 +46,20 @@ const SEO = ({ title, description, image, article }) => {
         <meta name="twitter:description" content={seo.description} />
       )}
       {seo.image && <meta name="twitter:image" content={seo.image} />}
+
+      {/*スマホ検索画像*/}
+          {/*
+            <PageMap>
+              <DataObject type="thumbnail">
+                <Attribute name="src" value="https://sasaki-tosou.co.jp/images/mobile_img.jpg"/>
+                <Attribute name="width" value="120"/>
+                <Attribute name="height" value="120"/>
+              </DataObject>
+            </PageMap>
+          */}
+          <meta name="thumbnail" content="https://sasaki-tosou.co.jp/images/mobile_img.jpg" />
+        {/*スマホ検索画像*/}
+      
     </Helmet>
   )
 }
