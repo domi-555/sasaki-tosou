@@ -71,18 +71,18 @@ const workflow = () => {
           <div className="w70p p1p">
             <div><span className="step_title">STEP02</span></div>
             <h4 className="flow_title">現場調査</h4>
-            当社の外装劣化診断士が建物全体の調査を行います。ひび割れや膨れ、剥がれ等傷み具合を細かくチェック。
-            ドローンを使用して普段見る事のできない屋根や雨樋等の劣化具合を診断します。
+            <p>当社の外装劣化診断士が建物全体の調査を行います。ひび割れや膨れ、剥がれ等傷み具合を細かくチェック。<br />
+            ドローンを使用して普段見る事のできない屋根や雨樋等の劣化具合を診断します。</p>
           </div>
           <div className="w30p p1p"><img src="/images/flow_pic02.jpg" alt="" /></div>
         </div>
         <div className="flow_box">
           <div className="w70p p1p">
             <div><span className="step_title">STEP03</span></div>
-            <h4 className="flow_title">調査報告書・見書の作成</h4>
-            建物の現状がわかりやすく明確にお伝えできるよう写真を多く取り入れた報告書を作成します。
-            調査内容を元にご予算に応じたプランを提案し見積書を作成いたします。
-            当社では正確な塗り面積を算出する為にCADで図面を起こし、リフォーム図面を作成します。
+            <h4 className="flow_title">調査報告書・見積書の作成</h4>
+            <p>建物の現状がわかりやすく明確にお伝えできるよう写真を多く取り入れた報告書を作成します。<br />
+            調査内容を元にご予算に応じたプランを提案し見積書を作成いたします。<br />
+            当社では正確な塗り面積を算出する為にCADで図面を起こし、リフォーム図面を作成します。</p>
           </div>
           <div className="w30p p1p"><img src="/images/flow_pic03.jpg" alt="" /></div>
         </div>
@@ -90,10 +90,10 @@ const workflow = () => {
           <div className="w70p p1p">
             <div><span className="step_title">STEP04</span></div>
             <h4 className="flow_title">見積りのご提示・ご契約</h4>
-            調査報告を行い見積書のご提示を行います。
-            工事内容についてお客様が納得いくまでご説明させていただきます。
-            ご納得いただけましたら契約は文書で行います。トラブル防止の為に約款、クーリングオフにっいての説明も記載しております。
-            リフォームローンのご利用もいただけます。
+            <p>調査報告を行い見積書のご提示を行います。<br />
+            工事内容についてお客様が納得いくまでご説明させていただきます。<br />
+            ご納得いただけましたら契約は文書で行います。トラブル防止の為に約款、クーリングオフにっいての説明も記載しております。<br />
+            リフォームローンのご利用もいただけます。</p>
           </div>
           <div className="w30p p1p"><img src="/images/flow_pic04.jpg" alt="" /></div>
         </div>
