@@ -1,0 +1,78 @@
+@charset "utf-8";
+/* CSS Document */
+
+strong{ font-weight:bold;}
+strong.strong{ font-size:125%;}
+
+@media screen and (max-width:640px){
+strong.strong{ font-size:116%;}
+}
+
+.mincho { font-family: Georgia,游明朝,"Yu Mincho",YuMincho,"Hiragino Mincho ProN",HGS明朝E,メイリオ,Meiryo,serif; }
+
+.noto_san { font-family: 'Noto Sans JP', sans-serif; }
+.shipo_min { font-family: 'Shippori Mincho', serif; }
+
+.cor_l_v2 { font-family: corporate-logo-ver2,sans-serif; font-weight: 700; font-style: normal; }
+
+.marker {
+background: linear-gradient(transparent 70%, #fff100 70%);
+}
+
+.normal{ font-weight:normal;}
+.bold { font-weight:900;}
+.italic{ font-family: 'Times New Roman',serif; font-style: italic; letter-spacing:0.05em;}
+
+.txt11{ font-size:11px;}
+.txt12{ font-size:12px!important;}
+.txt14{ font-size:14px;}
+.txt15{ font-size:15px;}
+.txt16{ font-size:16px;}
+.txt18{ font-size:18px;}
+.txt21{ font-size:21px;}
+.txt24{ font-size:24px;}
+
+.txt90p { font-size:90%; }
+.txt120p { font-size:120%; }
+.txt140p { font-size:140%!important; }
+.txt160p { font-size:160%; }
+.txt180p { font-size:180%; }
+.txt200p { font-size:200%; }
+.txt250p { font-size:250%; }
+.txt300p { font-size:300%; }
+
+@media print, screen and (min-width:769px){
+	.txt140p_pc { font-size:140%; }
+	.txt160p_pc { font-size:160%; }
+}
+
+@media print, screen and (max-width:768px){
+	.txt14_smp { font-size:140%!important;}
+	.txt130p_smp { font-size:130%; }
+}
+
+.white{ color:#fff;}
+.black{ color:#333;}
+.gy{ color:#aaa;}
+.red{ color:#c83232;}
+.blue{ color:#0a54a3 !important;}
+
+.green { color:#5ec618;}
+.dark-red { color:#cc0000;}
+
+.pink { color:#e5004f;}
+.orange { color:#ff7415; }
+.purple { color: #795a93; }
+
+.star { color: #fc3;}
+
+.bg_y{
+background:linear-gradient(transparent 50%, #fafa64 30%);
+background: -webkit-linear-gradient(transparent 50%, #fafa64 30%);
+font-weight: bold;
+}
+
+.under_line{ text-decoration:underline;}
+.line_through{ text-decoration:line-through;}
+
+h1,h2,h3,h4,h5,h6 { margin:0;}
