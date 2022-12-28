@@ -64,24 +64,24 @@ const yane = () => {
                 </div>
 
                 <div className="gaiheki_img_box">
-                    <div><img src="/images/yane_img02.jpg" alt="" /></div>
-                    <div>
-                    <p>外壁は傷み具合によって補修の有無、適正な塗料の選定も変わります。</p>
-                    <p>これまで多くのお客様のお宅の工事を手掛けてきた私たちが自信を持って調査ご提案させていただいております。</p>
-                    <p>施工は、職人経験のある社長のもと、経験豊富な職人たちが品質にこだわり丁寧に仕上げていきます。</p>
-                    <p>お客様には、新しく生まれ変わるおうちのイメージを膨らませて、カラーシュミレーションを一緒に楽しんでいただきたいです。</p>
+                    <div className='gaiheki_box_img'>
+                        <img src="/images/yane_img02.jpg" alt="" />
+                    </div>
+                    <div className='gaiheki_box_txt'>
+                        <p>外壁は傷み具合によって補修の有無、適正な塗料の選定も変わります。</p>
+                        <p>これまで多くのお客様のお宅の工事を手掛けてきた私たちが自信を持って調査ご提案させていただいております。</p>
+                        <p>施工は、職人経験のある社長のもと、経験豊富な職人たちが品質にこだわり丁寧に仕上げていきます。</p>
+                        <p>お客様には、新しく生まれ変わるおうちのイメージを膨らませて、カラーシュミレーションを一緒に楽しんでいただきたいです。</p>
                     </div>
                 </div>
 
                 <div className="gaiheki_title_box p0 mt50">
-                    <div className="flex-wrap">
-                        <div>
+                        <div className='gaiheki_title_img'>
                             <h2><img src="/images/yane_img03.png" alt="屋根塗装プラン30坪（100㎡程度）" /></h2>
                         </div>
-                        <div>
+                        <div className='gaiheki_title_txt'>
                             <img src="/images/yane_img04.png" alt="高圧洗浄→下地処理→塗装(3回)→アフター 全て含め ※ケレン作業・シーリング作業別途" />
                         </div>
-                    </div>
                 </div>
 
                 <ul className="gaiheki_price_list">

@@ -315,8 +315,65 @@ const Home = ({ data }) => {
   )
 }
 
-const jsonLd = {    
-  "@context": "http://schema.org",
+const jsonLd = {
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"BreadcrumbList",
+      "@id":"https://sasaki-tosou.co.jp/#breadcrumblist",
+      "itemListElement":[
+        {
+          "@type":"ListItem",
+          "@id":"https://sasaki-tosou.co.jp/#listItem",
+          "position":1,
+          "item":{
+            "@type":"WebPage",
+            "@id":"https://sasaki-tosou.co.jp/",
+            "name":"外壁塗装・屋根塗装なら広島の佐々木塗装｜安心施工、保証付きのアフターサービス。安佐北区で施工実績900件以上の実績。",
+            "description":"広島の外壁塗装・屋根塗装なら佐々木塗装にお任せ下さい。安心の口コミ総合評価4.7。まずは10秒無料相場チェック！",
+            "url":"https://sasaki-tosou.co.jp/"
+          },
+          "nextItem":"https://sasaki-tosou.co.jp/#listItem"
+        }
+      ]
+    },
+    {
+      "@type":"Person",
+      "@id":"https://sasaki-tosou.co.jp/#person"
+    },
+    {
+      "@type":"WebPage",
+      "@id":"https://sasaki-tosou.co.jp/#webpage",
+      "url":"https://sasaki-tosou.co.jp/",
+      "name":"外壁塗装・屋根塗装なら広島の佐々木塗装｜安心施工、保証付きのアフターサービス。安佐北区で施工実績900件以上の実績。",
+      "description":"広島の外壁塗装・屋根塗装なら佐々木塗装にお任せ下さい。安心の口コミ総合評価4.7。まずは10秒無料相場チェック！",
+      "inLanguage":"ja",
+      "isPartOf":{
+        "@id":"https://sasaki-tosou.co.jp/#website"
+      },
+      "breadcrumb":{
+        "@id":"https://sasaki-tosou.co.jp/#breadcrumblist"
+      },
+      "datePublished":"2022-8-26T02:23:53+09:00",
+      "dateModified":"2022-12-24T3:08:17+09:00"
+    },
+    {
+      "@type":"WebSite",
+      "@id":"https://sasaki-tosou.co.jp/#website",
+      "url":"https://sasaki-tosou.co.jp/",
+      "name":"外壁塗装・屋根塗装なら広島の佐々木塗装｜安心施工、保証付きのアフターサービス。安佐北区で施工実績900件以上の実績。",
+      "description":"広島の外壁塗装・屋根塗装なら佐々木塗装にお任せ下さい。安心の口コミ総合評価4.7。まずは10秒無料相場チェック！",
+      "inLanguage":"ja",
+      "publisher":{
+        "@id":"https://sasaki-tosou.co.jp/#person"
+      }
+    }
+  ]
+}
+
+const jsonhowto = {
+
+  "@context":"https://schema.org",
   "@type": "HowTo",
   "name": "最短10秒無料相場チェックの流れ",
   "description": "広島外壁塗装｜広島市安佐北区で施工実績No.1。広島発のドローンを使用した外装劣化診断士による診断。安心施工、保証付きのアフターサービス。大切な住まいの塗り替えは一級塗装技能士在籍、塗装のプロフェッショナル集団。屋根・外壁塗装の専門店の佐々木塗装にお任せください。 ［無料診断・無料見積を実施中］",
@@ -372,12 +429,13 @@ const jsonLd = {
       "url": "https://sasaki-tosou.co.jp/#souba_check"
     }
   ],
-  "totalTime": "PT10S"
+  "totalTime": "PT10S",
 }
 
 export const Head = () => (
   <>
-    <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>    
+    <script type="application/ld+json">{JSON.stringify(jsonLd)}</script> 
+    <script type="application/ld+json">{JSON.stringify(jsonhowto)}</script>
   </>
 )
 
