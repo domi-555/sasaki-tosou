@@ -312,7 +312,7 @@ const gaiheki = () => {
                     <div className="title">
                         <h3>遮熱塗料</h3>
                         <div className="nensu_box">
-                            <div>※耐用年数は塗料に使用される樹憶や立地条件により妻わります</div>
+                            <div>※耐用年数は塗料に使用される樹脂や立地条件により変わります</div>
                         </div>
                     </div>
                     <div className="gaiheki_inner">

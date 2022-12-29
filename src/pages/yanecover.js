@@ -118,7 +118,157 @@ const yanecover = () => {
                         </div>
                     </div>
 
-                    
+                    <div className="gaiheki_content cover">
+                        <div className="title">
+                            <h3>スーパーガルテクトが選ばれる3つのポイント</h3>
+                        </div>
+                        <div className='yane_cover_content'>
+                            <div className='cover_point_list'>
+                                <div className="cover_point">
+                                    <div className='cover_point_inner'>
+                                    <AnchorLink to="/yanecover/#point01" offset="50"><img src="/images/yanecover/point/btn-point1.png" alt="" /></AnchorLink>
+                                        <p className='bold noto_san txt120p'>長期保証<br />
+                                        コストパフォーマンス</p>
+                                    </div>
+                                </div>
+                                <div className="cover_point" offset="50">
+                                    <div className='cover_point_inner'>
+                                    <AnchorLink to="/yanecover/#point02"><img src="/images/yanecover/point/btn-point2.png" alt="" /></AnchorLink>
+                                        <p className='bold noto_san txt120p'>遮熱性・断熱性</p>
+                                    </div>
+                                </div>
+                                <div className="cover_point" offset="50">
+                                    <div className='cover_point_inner'>
+                                    <AnchorLink to="/yanecover/#point03"><img src="/images/yanecover/point/btn-point3.png" alt="" /></AnchorLink>
+                                        <p className='bold noto_san txt120p'>簡単施工・毎日安心性能</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div className='plr40'>
+                                <h3 id="point01">01 長期保証コストパフォーマンス</h3>
+
+                                <div className='flex-vcenter'>
+
+                                    <div className='cover_point_l'>
+                                    <img src="/images/yanecover/point/ph-point1-1.png" alt="" />
+                                    </div>
+
+                                    <div className='cover_point_r txt110p noto_san'>
+                                    スーパーガルテクトは、さびにくい金属の<br />
+                                    <span className='marker bold'>「超高耐久ガルバ」</span>を使うことで、<span className='marker bold'>高い耐久性</span>を実現しました。
+                                    </div>
+                                </div>
+
+                                <div className='flex-vcenter mt20'>
+                                    <div className='cover_point_l order2'>
+                                    <img src="/images/yanecover/point/ph-point1-2.png" alt="" />
+                                    </div>
+
+                                    <div className='w50p txt110p noto_san order1'>
+                                    めっき層に含まれる、アルミ、亜鉛、マグネシウムの成分がベースの鋼板を<span className='marker bold'>強⼒にガード</span>します。
+                                    </div>
+                                </div>
+
+                                <div className='flex-vcenter mt20'>
+                                    <div className='cover_point_l'>
+                                    <img src="/images/yanecover/point/ph-point1-3.png" alt="" />
+                                    </div>
+
+                                    <div className='cover_point_r txt110p noto_san'>
+                                    <span className='marker bold'>めっき量も多く</span>、⼀般的なガルバリウム鋼板の約1.25倍の厚み！<br />
+                                    だから、塗膜15年、⾚さび20年、⽳あき25年の<span className='marker bold'>⻑期保証！</span>
+                                    </div>
+                                </div>
+
+                                <h4 className='yane_cover_title'>さらに、丈夫で長持ちするからコスパもグッド！</h4>
+                                        <div className='cover_img'><img src="/images/yanecover/point/ph-point1-4.png" alt="" /></div>
+                                        <p className='txt110p'>⼀般的な屋根は、リフォーム後10年で、再塗装が必要ですが、スーパーガルテクトなら、<span className='marker bold'>15年間は再塗装がいりません！</span><br />
+                                        初期費⽤は、塗装リフォームよりちょっとだけお⾼めですが、<span className='marker bold'>⻑期的にみると、断然お得！</span><br />
+                                        スーパーガルテクトは、丈夫で⻑持ち、オトク！<span className='marker bold'>ずーっと安⼼できる屋根なんです！</span></p>
+                                        
+                                        <p>※ メンテナンス時期を保証するものではありません。住宅の地域や環境により表面劣化の進行状況が異なります。</p>
+
+                                <h3 id="point02">02 遮熱性＆断熱性</h3>
+
+                                <div className='flex-vcenter'>
+
+                                    <div className='cover_point_l'>
+                                    <img src="/images/yanecover/point/ph-point2-1.png" alt="" />
+                                    </div>
+
+                                    <div className='cover_point_r txt110p noto_san'>
+                                    <p>スーパーガルテクトの構造には、<span className='marker bold'>アイジー⼯業の独⾃技術</span>がギュギュっとつまっています！断熱材は、⼩さな泡の集合体でできていて、泡に封じ込められている熱を伝えにくいガスが、<span className='marker bold'>⾼い断熱効果を発揮</span>してくれるんです！<br/>
+                                    表⾯の塗料には、遮熱性が⾼いものを採⽤。</p>
+                                    
+                                    <p>屋根⾃体の構造も、アイジーの独⾃技術で<span className='marker bold'>遮熱性がさらにUP！</span>接合部分にまで、断熱材が充てんされているから、屋根裏への熱の侵⼊を防ぎます。</p>
+                                    </div>
+                                </div>
+
+                                <div className='flex-vcenter mt20'>
+                                    <div className='cover_point_l order2'>
+                                    <img src="/images/yanecover/point/ph-point2-2-model.png" alt="" />
+                                    </div>
+
+                                    <div className='cover_point_r txt110p noto_san order1'>
+                                    <span className='marker bold'>遮熱と断熱のWパワー</span>で、おうちの中は、夏は涼しく、冬は暖かい！
+                                    </div>
+                                </div>
+
+                                <div className='flex-vcenter mt20'>
+
+                                    <div className='cover_point_l'>
+                                    <img src="/images/yanecover/point/ph-point2-3.png" alt="" />
+                                    </div>
+
+                                    <div className='cover_point_r noto_san'>
+                                    <p className='txt110p'>スーパーガルテクトでリフォームすれば、屋根裏⾯温度の上昇が抑られ、<span className='marker bold'>1年を通して安⼼・快適に過ごせます。</span><br />
+                                    さらに、<span className='marker bold'>断熱材は防⽕性能もグッド！</span>「⾃⼰消火性」があるから、燃え広がるリスクを軽減し、<span className='marker bold'>万が⼀の時も⼼強いんです！</span></p>
+                                    <p>※アイジー工業（株）の試験による参考値です。実際の屋根を再現した模型に人工太陽を照射し、温度が安定した状態（80分経過後）に屋内をサーモカメラで撮影した結果です。試験条件：屋根表面温度80℃、外気温30℃、小屋裏温度30℃。</p>
+                                    </div>
+                                </div>
+
+                                <h3 id="point03">03 簡単施工＆毎日安全性能</h3>
+
+                                <div className='flex-vcenter'>
+
+                                    <div className='cover_point_l'>
+                                    <img src="/images/yanecover/point/ph-point3-1.png" alt="" />
+                                    </div>
+
+                                    <div className='cover_point_r txt110p noto_san'>
+                                    <p>スーパーガルテクトは1㎡当たり5㎏で、スレート屋根に比べて約1/4、和瓦屋根に比べて約1/10と<span className='marker bold'>超軽量</span>です！<br />
+                                    さらに金属製のため、<span className='marker bold'>地震時の「割れ」の心配がありません。</span></p>
+                                    </div>
+                                </div>
+
+                                <div className='flex-vcenter mt20'>
+                                    <div className='cover_point_l order2'>
+                                    <img src="/images/yanecover/point/ph-point3-2.png" alt="" />
+                                    </div>
+
+                                    <div className='cover_point_r txt110p noto_san order1'>
+                                    施⼯のしやすさと丈夫さから、台⾵や地震発⽣後の災害復旧にも使われています。<br />
+                                    もちろん、<span className='marker bold'>災害対策</span>にもおすすめ。<br />
+                                    屋根の劣化やひび割れが原因で起こる屋根の⾶散は、⾦属製のスーパーガルテクトが<span className='marker bold'>しっかりガード</span>してくれるので安⼼です。
+                                    </div>
+                                </div>
+
+                                <div className='flex-vcenter mt20'>
+
+                                    <div className='cover_point_l'>
+                                    <img src="/images/yanecover/point/ph-point3-3.png" alt="" />
+                                    </div>
+
+                                    <div className='cover_point_r noto_san'>
+                                    <p>台⾵を想定した強⾵実験では、⾵速65m/sを超える<span className='marker bold'>強⾵でも問題はありません</span>でした。</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        
+                    </div>
 
                     <h2 className="page_title01">作業の流れ</h2>
 

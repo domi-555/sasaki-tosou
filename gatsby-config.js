@@ -7,6 +7,11 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     title: "外壁塗装・屋根塗装なら広島の佐々木塗装｜安心施工、保証付きのアフターサービス。",
@@ -76,11 +81,31 @@ module.exports = {
     },
 
     {
+      resolve: 'gatsby-source-microcms',
+      options: {
+        apiKey: process.env.API_KEY,
+        serviceId: 'sasaki-tosou',
+        apis: [
+          {
+            endpoint: 'case',
+          },
+          {
+            endpoint: 'category',
+          },
+          {
+            endpoint: "blog",
+          },
+        ],
+      },
+    },
+
+    {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
         siteUrl: `https://sasaki-tosou.co.jp/`,
       },
     },
+
     `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-robots-txt`,
@@ -90,6 +115,7 @@ module.exports = {
         policy: [{ userAgent: `*`, allow: `/` }],
       },
     },
+
 
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
