@@ -24,6 +24,7 @@ const Footer = () => {
                                     <li><Link to="/voice/">お客様の声</Link></li>
                                     <li><Link to="/faq/">お客様Q&amp;A</Link></li>
                                     <li><Link to="/omoide/">思い出のかべ</Link></li>
+                                    <li><Link to="/tosou-arekore/">外壁塗装コラム</Link></li>
                                 </ul>
                             </div>
                             <div className="foot_link">
@@ -43,6 +44,8 @@ const Footer = () => {
                                     <li><Link to="/case/">施工事例一覧</Link></li>
                                     <li><Link to="/workflow/">施工の流れ</Link></li>
                                     <li><Link to="/karucera_works/">カルセラリフォーム施工例</Link></li>
+                                    <li><Link to="/omoide/">思い出のかべ</Link></li>
+                                    <li><Link to="/now-working/">ただいま施工中</Link></li>
                                 </ul>
                             </div>
                             <div className="foot_link">

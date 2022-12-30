@@ -31,7 +31,7 @@ const index = ({ data }) => {
             <li className="pc"><Link to="https://www.instagram.com/sasaki.ryoko/" target="_blank" className="insta_bt"><span className="insta"><img src="/images/insta_icon.svg" width={25} height={25} className="opa" alt="" /></span></Link></li>
         </ul>
 
-        <div id="mainimage-sub" className='gaiheki'>
+        <div id="mainimage-sub" className='now_working'>
             <div id="mainimage-inner">
             </div>
         </div>
@@ -45,19 +45,28 @@ const index = ({ data }) => {
             <div className="main_b">
                 <h2 className="page_title01 mt0">ただいま施工中</h2>                
                 
+                <div className="kiji_list">
                 {data.allMicrocmsBlog.edges.map(({ node }) => (
-                    <>
-                    <article class="list">
-                        <p class="date">
-                            <span className='cat_list'><a href={'/now_working/' + node.blogId}>{node.category.name}</a></span>
-                            <span class="blobdate">{node.date}</span>
-                        </p>
-                        </article>
-                    </>
-                ))}
+                  <div className="kiji_box">
+                    <div className="kiji_thumb">
+                    <a href={'/' + node.category.slug + '/' + node.blogId + '/'}><img src={node.mainimage.url} /></a>
+                    </div>
+                    <div className="kiji_txt">					
+                      <p class="txt12">{node.date}</p>
+                      <p><a className="kiji_title" href={'/' + node.category.slug + '/' + node.blogId + '/'}>{node.title}</a></p>
+                      <p className="txt12">{node.excerpt}・・・</p>
+                      <ul class="cat_list">
+                        <li class="blog-sekou-blog"><a href={'/' + node.category.slug + '/'} class="txt12">{node.category.name}</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  ))}
+                </div>
 
             </div>
-            <Sideb />
+            <div className="side_b">
+              <Sideb />
+            </div>
             </div>
             
             
@@ -73,20 +82,24 @@ export default index
 
 export const query = graphql`
 {
-    allMicrocmsBlog(filter: {category: {slug: {eq: "now_working"}}}) {
-        edges {
-                node {
-                    title
-                    blogId
-                    date(formatString: "YYYY年MM月DD日")
-                    category {
-                        slug
-                        name
-                        id
-                    }
-                    body
-                }
+    allMicrocmsBlog(filter: {category: {slug: {eq: "now-working"}}}) {
+      edges {
+        node {
+          title
+          blogId
+          date(formatString: "YYYY年MM月DD日")
+          category {
+            slug
+            name
+            id
+          }
+          body
+          excerpt
+          mainimage {
+            url
+          }
         }
+      }
     }
-}
+  }
 `

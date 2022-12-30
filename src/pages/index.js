@@ -19,16 +19,23 @@ import Kuchikomi from '../components/Kuchikomi';
 import EmbedYoutube from "../components/EmbedYoutube"
 import About from '../components/About';
 import Footer from '../components/Footer';
+import Sideb from '../components/sideb';
 
-const Home = ({ data }) => {  
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
+const Home = ({ data }) => {
   return (
     <>
 
     <Seo
     title="外壁塗装・屋根塗装なら広島の佐々木塗装｜安心施工、保証付きのアフターサービス。"
     description="外壁塗装・屋根塗装なら広島の佐々木塗装のページです。"
-     />
+    />
 
     <Header />
 
@@ -36,9 +43,9 @@ const Home = ({ data }) => {
 
       <div className="catch_title">
         <h2>
-          <GatsbyImage image={data.catchtxt.childImageSharp.gatsbyImageData} className="pc" alt="ご近所だからできるスピーディーな対応。地元安佐北区での施工実績豊富な佐々木塗装に相談して見ませんか？" />
-          <GatsbyImage image={data.catchtxttub.childImageSharp.gatsbyImageData} className="tub" alt="ご近所だからできるスピーディーな対応。地元安佐北区での施工実績豊富な佐々木塗装に相談して見ませんか？" />
-          <GatsbyImage image={data.catchtxtsmp.childImageSharp.gatsbyImageData} className="smp" alt="ご近所だからできるスピーディーな対応。地元安佐北区での施工実績豊富な佐々木塗装に相談して見ませんか？" />
+          <StaticImage src="/images/catch_txt.png" className="pc" alt="ご近所だからできるスピーディーな対応。地元安佐北区での施工実績豊富な佐々木塗装に相談して見ませんか？" />
+          <StaticImage src="/images/catch_txt.png" className="tub" alt="ご近所だからできるスピーディーな対応。地元安佐北区での施工実績豊富な佐々木塗装に相談して見ませんか？" />
+          <StaticImage src="/images/catch_txt_smp.png" className="smp" alt="ご近所だからできるスピーディーな対応。地元安佐北区での施工実績豊富な佐々木塗装に相談して見ませんか？" />
         </h2>
       </div>
 
@@ -56,6 +63,7 @@ const Home = ({ data }) => {
     </div>
     
     <p id="page-top" data-sal="slide-bottom" viewOffset="0.2" data-sal-delay="200" data-sal-easing="ease"><AnchorLink offset="0" to="#pagetop" title="Pagetop"><FontAwesomeIcon icon={faChevronUp} /></AnchorLink></p>
+
     <ul
     className="fix_bn"
     data-sal="slide-right"
@@ -63,21 +71,17 @@ const Home = ({ data }) => {
     data-sal-delay="300"
     data-sal-easing="ease"
     >
-              <li><Link to="/contact_page/" className="mail_bt"><img src="/images/mail_icon.svg" width={45} height={45} className="opa" alt="" />
-              <span>お問い合わせ</span></Link></li>
-              <li><Link to="https://lin.ee/HR9JB00" className="line_bt" target="_blank"><img src="/images/line_icon.svg" width={45} height={45} className="opa" alt="" />
-              <span>ライン見積もり</span></Link></li>
-              <li className="pc"><Link to="https://twitter.com/sasakipaint1116" target="_blank" className="tw_bt"><img src="/images/tw_icon.png" width={25} height={25} className="opa" alt="" /></Link></li>
-              <li className="pc"><Link to="https://www.facebook.com/profile.php?id=100063604571277" target="_blank" className="fb_bt"><img src="/images/fb_icon.png" width={25} height={25} className="opa" alt="" /></Link></li>
-              <li className="pc"><Link to="https://www.instagram.com/sasaki.ryoko/" target="_blank" className="insta_bt"><span className="insta"><img src="/images/insta_icon.svg" width={25} height={25} className="opa" alt="" /></span></Link></li>
-        </ul>
+      <li><Link to="/contact_page/" className="mail_bt"><img src="/images/mail_icon.svg" width={45} height={45} className="opa" alt="" />
+      <span>お問い合わせ</span></Link></li>
+      <li><Link to="https://lin.ee/HR9JB00" className="line_bt" target="_blank"><img src="/images/line_icon.svg" width={45} height={45} className="opa" alt="" />
+      <span>ライン見積もり</span></Link></li>
+      <li className="pc"><Link to="https://twitter.com/sasakipaint1116" target="_blank" className="tw_bt"><img src="/images/tw_icon.png" width={25} height={25} className="opa" alt="" /></Link></li>
+      <li className="pc"><Link to="https://www.facebook.com/profile.php?id=100063604571277" target="_blank" className="fb_bt"><img src="/images/fb_icon.png" width={25} height={25} className="opa" alt="" /></Link></li>
+      <li className="pc"><Link to="https://www.instagram.com/sasaki.ryoko/" target="_blank" className="insta_bt"><span className="insta"><img src="/images/insta_icon.svg" width={25} height={25} className="opa" alt="" /></span></Link></li>
+    </ul>
 
     <div id="content">
       <div className="maincontent">
-    
-      
-
-        
       
         <section id="news">
           <div className="main-content">
@@ -126,8 +130,8 @@ const Home = ({ data }) => {
                 <p className="center"><Link to="/case/" className="bt02"><FontAwesomeIcon icon={faAngleRight} /> 施工事例はこちらから</Link></p>
                 
                 <ul className="jirei_pic">
-                  <li><GatsbyImage image={data.kansya01.childImageSharp.gatsbyImageData} width={200} height={267} alt="感謝状イメージ1" /></li>
-                  <li><GatsbyImage image={data.kansya02.childImageSharp.gatsbyImageData} width={200} height={267} alt="感謝状イメージ2" /></li>
+                  <li><StaticImage src="../images/kansyajyo_pic01.png" alt="感謝状イメージ1" /></li>
+                  <li><StaticImage src="../images/kansyajyo_pic02.png" alt="感謝状イメージ2" /></li>
                 </ul>
 
               </div>
@@ -142,14 +146,41 @@ const Home = ({ data }) => {
 
         <Kuchikomi />
 
-        
-
         <section id="works_list">
           <div className="main-content">
+
             <h3>ただいま施工中！</h3>
-            <div className="works_cont">
-              <iframe width="100%" height={900} scrolling="no" src="https://sasaki-tosou.co.jp/works.php" title="ただいま施工中一覧" target="_parent" />
+
+            <div className="works_list_wrap">
+
+            <Swiper
+                modules={[Navigation, Pagination]}
+                        spaceBetween={0}  
+                        navigation
+                        pagination={{ clickable: true }}                      
+                        onSlideChange={() => console.log('slide change')}
+                        onSwiper={(swiper) => console.log(swiper)} 
+                        breakpoints={{                          
+                          768: {
+                            slidesPerView: 4
+                          }
+                        }}
+                        autoHeight>
+
+            <div className="works_list_wrap">
+              {data.works.edges.map(({ node }) => (
+                <SwiperSlide>
+                <div className="works_list">
+                  <p><a href={'/' + node.category.slug + '/' + node.blogId + '/'} target="_parent"><img src={node.mainimage.url} /></a></p>
+                  <p className="workstitle"><a href={'/' + node.category.slug + '/' + node.blogId} target="_parent">{node.title}</a></p>
+                </div>
+                </SwiperSlide>
+              ))}
             </div>
+            </Swiper>
+
+            </div>
+
           </div>
         </section>
 
@@ -161,12 +192,12 @@ const Home = ({ data }) => {
             <EmbedYoutube />
 
             <ul className="img_list3">
-              <li><Link to="/gaiheki/"><GatsbyImage image={data.bn01.childImageSharp.gatsbyImageData} className="opa" alt="外壁塗装" /></Link></li>
-              <li><Link to="/yane/"><GatsbyImage image={data.bn02.childImageSharp.gatsbyImageData} className="opa" alt="屋根塗装" /></Link></li>
-              <li><Link to="/yanefuki/"><GatsbyImage image={data.bn03.childImageSharp.gatsbyImageData} className="opa" alt="屋根葺替" /></Link></li>
-              <li><Link to="/yanecover/"><GatsbyImage image={data.bn04.childImageSharp.gatsbyImageData} className="opa" alt="屋根カバー工法" /></Link></li>
-              <li><Link to="/drainspout/"><GatsbyImage image={data.bn05.childImageSharp.gatsbyImageData} className="opa" alt="雨樋の交換" /></Link></li>
-              <li><Link to="/exterior/"><GatsbyImage image={data.bn06.childImageSharp.gatsbyImageData} className="opa" alt="エクステリア" /></Link></li>
+              <li><Link to="/gaiheki/"><StaticImage src="../images/bn01.jpg" className="opa" alt="外壁塗装" /></Link></li>
+              <li><Link to="/yane/"><StaticImage src="../images/bn02.jpg" className="opa" alt="屋根塗装" /></Link></li>
+              <li><Link to="/yanefuki/"><StaticImage src="../images/bn03.jpg" className="opa" alt="屋根葺替" /></Link></li>
+              <li><Link to="/yanecover/"><StaticImage src="../images/bn04.jpg" className="opa" alt="屋根カバー工法" /></Link></li>
+              <li><Link to="/drainspout/"><StaticImage src="../images/bn05.jpg" className="opa" alt="雨樋の交換" /></Link></li>
+              <li><Link to="/exterior/"><StaticImage src="../images/bn06.jpg" className="opa" alt="エクステリア" /></Link></li>
             </ul>
 
           </div>
@@ -184,7 +215,7 @@ const Home = ({ data }) => {
                 <p className="title05">住宅塗装について不安や<br className="smp" />疑問ありませんか？</p>
                 
                 <div>
-                  <GatsbyImage image={data.study01.childImageSharp.gatsbyImageData} alt="悪い業者と良い業者の見分け方は？塗料によって何がどう変わるの？見積書の見方がわからない・・・工事後の保証ってどうなるの？" />
+                <StaticImage src="../images/study_pic01.jpg" alt="悪い業者と良い業者の見分け方は？塗料によって何がどう変わるの？見積書の見方がわからない・・・工事後の保証ってどうなるの？" />
                 </div>
                 
                 <p className="title06">その疑問、塗り替え勉強会で<br className="smp" />お答えします！</p>
@@ -216,9 +247,32 @@ const Home = ({ data }) => {
                 </div>
 
                 <p className="title05 mt3p">施工事例</p>
-                
-                <div className="case_cont">
-                  <iframe width="100%" height={700} src="https://sasaki-tosou.co.jp/cace.php" title="施工事例一覧" target="_parent" />
+
+                <div className="case_list_wrap">
+                <Swiper
+                modules={[Navigation, Pagination]}
+                        spaceBetween={0}  
+                        navigation
+                        pagination={{ clickable: true }}                      
+                        onSlideChange={() => console.log('slide change')}
+                        onSwiper={(swiper) => console.log(swiper)} 
+                        breakpoints={{                          
+                          768: {
+                            slidesPerView: 4
+                          }
+                        }}
+                        autoHeight>
+                  {data.case.edges.map(({ node }) => (
+                    <SwiperSlide>
+                    <div className="case_list">
+                      <div class="kanryo_icon"></div>
+                      <div class="kanryo_icon2"><img src="../images/kanryo_icon.png" /></div>
+                      <p><a href={'/case/' + node.caseId} target="_parent"><img src={node.maeImg.url} /></a></p>
+                      <p className="workstitle"><a href={'/case/' + node.caseId} target="_parent">{node.title}</a></p>
+                    </div>
+                    </SwiperSlide>
+                  ))}
+                  </Swiper>
                 </div>
                 
                 <div className="p3p">
@@ -227,19 +281,7 @@ const Home = ({ data }) => {
               </div>
 
               <div className="study_l">
-                <ul className="center">
-                  <li><Link to="/leak/"><GatsbyImage image={data.side01.childImageSharp.gatsbyImageData} alt="雨漏り診断" /></Link></li>
-                  <li><Link to="/drone/"><GatsbyImage image={data.side02.childImageSharp.gatsbyImageData} alt="ドローンによる調査・診断を始めました" /></Link></li>
-                  <li><Link to="/omoide/"><GatsbyImage image={data.side03.childImageSharp.gatsbyImageData} alt="思い出のかべ" /></Link></li>
-                  <li><Link to="https://lin.ee/HR9JB00"><GatsbyImage image={data.side04.childImageSharp.gatsbyImageData} alt="お気軽にLINEで簡単お問い合わせ" /></Link></li>
-                  <li><Link to="/karucera_works/"><GatsbyImage image={data.karucerabn.childImageSharp.gatsbyImageData} alt="カルセラ"/></Link></li>
-                  <li><Link to="https://www.chord.or.jp/"><GatsbyImage image={data.side08.childImageSharp.gatsbyImageData} alt="住まいるダイヤル" /></Link></li>
-                  <li><Link to="https://www.j-anshin.co.jp/"><img src="/images/side_ansin.svg" alt="株式会社住宅あんしん保証" /></Link></li>
-                  <li><GatsbyImage image={data.side06.childImageSharp.gatsbyImageData}  alt="外装リフォームの教科書" /></li>
-                  <li><Link to="https://www.mokutokyo.jp/"><GatsbyImage image={data.side07.childImageSharp.gatsbyImageData}  alt="（一社）木造住宅塗装リフォーム協会" /></Link></li>
-                  <li><Link to="/aeon_credit/"><GatsbyImage image={data.side05.childImageSharp.gatsbyImageData} alt="便利な分割ローン" /></Link></li>
-                  <li><GatsbyImage image={data.side09.childImageSharp.gatsbyImageData} alt="選べる支払方法" /></li>
-                </ul>
+                <Sideb />                
               </div>
 
             </div>
@@ -436,10 +478,13 @@ export const Head = () => (
   <>
     <script type="application/ld+json">{JSON.stringify(jsonLd)}</script> 
     <script type="application/ld+json">{JSON.stringify(jsonhowto)}</script>
+    
+    
   </>
 )
 
 export const query = graphql`
+
 query {
 
   twIcon: file(relativePath: {eq: "tw_icon.png"}) {
@@ -602,37 +647,6 @@ query {
     }
   }
 
-  bn01: file(relativePath: {eq: "bn01.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(layout: FULL_WIDTH)
-    }
-  }
-  bn02: file(relativePath: {eq: "bn02.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(layout: FULL_WIDTH)
-    }
-  }
-  bn03: file(relativePath: {eq: "bn03.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(layout: FULL_WIDTH)
-    }
-  }
-  bn04: file(relativePath: {eq: "bn04.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(layout: FULL_WIDTH)
-    }
-  }
-  bn05: file(relativePath: {eq: "bn05.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(layout: FULL_WIDTH)
-    }
-  }
-  bn06: file(relativePath: {eq: "bn06.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(layout: FULL_WIDTH)
-    }
-  }
-
   about01: file(relativePath: {eq: "about_pic01.jpg"}) {
     childImageSharp {
       gatsbyImageData(layout: FULL_WIDTH)
@@ -669,58 +683,6 @@ query {
     }
   }
 
-  side01: file(relativePath: {eq: "side01.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(width: 264, layout: CONSTRAINED)
-    }
-  }
-  side02: file(relativePath: {eq: "side02.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(width: 264, layout: CONSTRAINED)
-    }
-  }
-  side03: file(relativePath: {eq: "side03.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(width: 264, layout: CONSTRAINED)
-    }
-  }
-  side04: file(relativePath: {eq: "side04.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(width: 264, layout: CONSTRAINED)
-    }
-  }
-  side05: file(relativePath: {eq: "side05.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(width: 264, layout: CONSTRAINED)
-    }
-  }
-  side06: file(relativePath: {eq: "side06.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(width: 264, layout: CONSTRAINED)
-    }
-  }
-  side07: file(relativePath: {eq: "side07.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(width: 264, layout: CONSTRAINED)
-    }
-  }
-  side08: file(relativePath: {eq: "side08.png"}) {
-    childImageSharp {
-      gatsbyImageData(width: 264, layout: CONSTRAINED)
-    }
-  }
-  side09: file(relativePath: {eq: "side09.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(width: 264, layout: CONSTRAINED)
-    }
-  }
-
-  karucerabn: file(relativePath: {eq: "karucera_bn.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(width: 264, layout: CONSTRAINED)
-    }
-  }
-  
   paint01: file(relativePath: {eq: "paint_logo01.jpg"}) {
     childImageSharp {
       gatsbyImageData(width: 274, layout: CONSTRAINED)
@@ -799,6 +761,50 @@ query {
   paint16: file(relativePath: {eq: "paint_logo16.jpg"}) {
     childImageSharp {
       gatsbyImageData(width: 274, layout: CONSTRAINED)
+    }
+  }
+
+  case:allMicrocmsCase {
+    edges {
+      node {
+        title
+        caseId
+        date(formatString: "YYYY年MM月DD日")
+        category {
+          slug
+          name
+          id
+        }
+        atoImg {
+          url
+        }
+        maeImg {
+          url
+        }
+        casePeriod
+        casetxt
+        caseDescription
+      }
+    }
+  }
+
+  works:allMicrocmsBlog(filter: {category: {slug: {eq: "now-working"}}}) {
+    edges {
+      node {
+        title
+        blogId
+        date(formatString: "YYYY年MM月DD日")
+        category {
+          slug
+          name
+          id
+        }
+        body
+        excerpt
+        mainimage {
+          url
+        }
+      }
     }
   }
 

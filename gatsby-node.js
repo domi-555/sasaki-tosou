@@ -7,39 +7,8 @@ exports.createPages = ({ actions, graphql }) => {
   const caseTemplate = path.resolve('src/templates/case-post.js');
 	const blogTemplate = path.resolve('src/templates/blog-post.js');
   const worksTemplate = path.resolve('src/templates/works-post.js');
-
-	// Individual blogs pages
-	const works = graphql(`
-  {
-    works:allMicrocmsBlog {
-      edges {
-        node {
-          
-          blogId
-          category {
-            slug
-            name
-          }
-          title
-          date(formatString: "YYYY年MM月DD日")
-        }
-      }
-      totalCount
-    }
-  }
-	`).then(result => {
-		if (result.errors) {
-			Promise.reject(result.errors);
-		}
-
-		// Create blog pages
-		result.data.works.edges.forEach(({ node }) => {
-        createPage({
-          path:`${node.category.slug}/${node.blogId}/`,
-          component: worksTemplate,
-        });
-      });
-	});
+  const omoidesTemplate = path.resolve('src/templates/omoide-post.js');
+  const arekoresTemplate = path.resolve('src/templates/arekore-post.js');
 
   // Individual blogs pages
 	const blogs = graphql(`
@@ -74,7 +43,7 @@ exports.createPages = ({ actions, graphql }) => {
       });
 	});
 
-	// Individual docs pages
+	// Individual cases pages
 	const cases = graphql(`
   {
     cases:allMicrocmsCase {
@@ -98,7 +67,7 @@ exports.createPages = ({ actions, graphql }) => {
 			Promise.reject(result.errors);
 		}
 
-		// Create doc pages
+		// Create cases pages
 		result.data.cases.edges.forEach(({ node }) => {
 			createPage({
 				path:`${node.category.slug}/${node.caseId}/`,
@@ -107,6 +76,106 @@ exports.createPages = ({ actions, graphql }) => {
 		});
 	});
 
+  // Individual omoides pages
+	const omoides = graphql(`
+  {
+    omoide: allMicrocmsBlog(filter: {category: {slug: {eq: "omoide"}}}) {
+      edges {
+        node {
+          blogId
+          category {
+            slug
+            name
+          }
+          title
+          date(formatString: "YYYY年MM月DD日")
+        }
+      }
+      totalCount
+    }
+  }
+	`).then(result => {
+		if (result.errors) {
+			Promise.reject(result.errors);
+		}
+
+		// Create blog pages
+		result.data.omoide.edges.forEach(({ node }) => {
+        createPage({
+          path:`${node.category.slug}/${node.blogId}/`,
+          component: omoidesTemplate,
+        });
+      });
+	});
+
+  // Individual omoides pages
+	const arekores = graphql(`
+  {
+    arekores: allMicrocmsBlog(filter: {category: {slug: {eq: "tosou-arekore"}}}) {
+      edges {
+        node {
+          blogId
+          category {
+            slug
+            name
+          }
+          title
+          date(formatString: "YYYY年MM月DD日")
+        }
+      }
+      totalCount
+    }
+  }
+	`).then(result => {
+		if (result.errors) {
+			Promise.reject(result.errors);
+		}
+
+		// Create arekore pages
+		result.data.arekores.edges.forEach(({ node }) => {
+        createPage({
+          path:`${node.category.slug}/${node.blogId}/`,
+          component: arekoresTemplate,
+        });
+      });
+	});
+
+  // Individual nowWorkings pages
+	const works = graphql(`
+  {
+    works:allMicrocmsBlog(filter: {category: {slug: {eq: "now-working"}}}) {
+      edges {
+        node {
+          blogId
+          category {
+            slug
+            name
+          }
+          title
+          date(formatString: "YYYY年MM月DD日")
+          body
+          mainimage {
+            url
+          }
+        }
+      }
+      totalCount
+    }
+  }
+	`).then(result => {
+		if (result.errors) {
+			Promise.reject(result.errors);
+		}
+
+		// Create nowWorkings pages
+		result.data.works.edges.forEach(({ node }) => {
+        createPage({
+          path:`/now-working/${node.blogId}/`,
+          component: worksTemplate,
+        });
+      });
+	});
+
 	// Return a Promise which would wait for both the queries to resolve
-	return Promise.all([blogs, cases]);
+	return Promise.all([blogs, cases, works, arekores, omoides]);
 };

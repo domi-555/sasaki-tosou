@@ -4,7 +4,7 @@ import { graphql,Link } from "gatsby"
 import Seo from "../../components/Seo"
 import Header from "../../components/Header"
 import Layout from "../../components/Layout"
-import Sideb from "../../components/sideb"
+import Sideb from '../../components/sideb'
 
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -34,30 +34,30 @@ export default function index({data}) {
             </div>
 
             <section id="sub-page">
-                <div className='main-content'>
+                <div className='main-content'>                  
 
-                    <h2 className="page_title01 mt0">施工事例</h2>
-
-                    <div className='kiji_list'>
-                        
-                    {data.allMicrocmsCase.edges.map(({ node }) => (
-                    
-                    <div className="kiji_box">
-                    <div className="kiji_thumb">
-                        <img src={node.atoImg.url} alt="" />				
+                  <div className="flex-wrap">
+                    <div className="main_b">
+                      <h2 className="page_title01 mt0">施工事例</h2>
+                      <div className='kiji_list'>
+                        {data.allMicrocmsCase.edges.map(({ node }) => (
+                          <div className="kiji_box">
+                            <div className="kiji_thumb">
+                                <img src={node.atoImg.url} alt="" />				
+                            </div>
+                            <div className="kiji_txt">
+                                <p>{node.date}</p>
+                                <p><a href={'/case/' + node.caseId}>{node.title}</a></p>					
+                            </div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                    <div className="kiji_txt">
-                        <p>{node.date}</p>
-                        <p><a href={'/case/' + node.caseId}>{node.title}</a></p>					
+                    <div className="side_b">
+                      <Sideb />
                     </div>
-                    </div>
-                    
-                    ))}
-
-                    
                         
-                        
-                    </div>                    
+                  </div>
                 
                 </div>
             </section>

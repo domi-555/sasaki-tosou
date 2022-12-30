@@ -93,16 +93,16 @@ const gaiheki = () => {
                 </ul>
 
                 <div className="comment_box">
-                <div className="comment_l"><StaticImage src="../images/boss_photo2.jpg" alt="佐々木塗装代表-写真" /></div>
-                <div className="comment_r">
-                    <div>
-                        塗料の種類は様々です。<br />
-                        ただ色をつけるだけでなく、最近は塗料そのものに機能をもった商品も多くあります。<br />
-                        ただし、高級な塗料を選べば塗装工事が成功するわけではありません。<br />
-                        大事なのは素材に合った塗料を選ぶ事。そして塗装の仕様を守る事です。<br />
-                        お住いのメンテナンス計画も考慮してピッタリのプランを選んで下さい。
+                    <div className="comment_l"><StaticImage src="../images/boss_photo2.jpg" alt="佐々木塗装代表-写真" /></div>
+                    <div className="comment_r">
+                        <div>
+                            塗料の種類は様々です。<br />
+                            ただ色をつけるだけでなく、最近は塗料そのものに機能をもった商品も多くあります。<br />
+                            ただし、高級な塗料を選べば塗装工事が成功するわけではありません。<br />
+                            大事なのは素材に合った塗料を選ぶ事。そして塗装の仕様を守る事です。<br />
+                            お住いのメンテナンス計画も考慮してピッタリのプランを選んで下さい。
+                        </div>
                     </div>
-                </div>
                 </div>
 
                 <h2 class="page_title01 mt0">外壁塗装</h2>

@@ -1,0 +1,84 @@
+@charset "utf-8";
+/* CSS Document */
+
+.g_logo {
+	box-sizing: border-box;
+    width: 120px;
+    background: #fff;
+    padding: 10px ;
+    margin-right: 3px;
+    border-radius: 32px;
+	position: relative;
+}
+.g_logo:before {
+    content: '';
+    border: 14px solid transparent;
+    border-bottom-color: #fff;
+    position: absolute;
+    top: 17px;
+    left: -6px;
+    transform: rotate(-23deg);
+    z-index: 1;
+}
+
+.kuchikomi_title_l { width: 15%; }
+.kuchikomi_title_r { width: 85%; font-family: 'Noto Sans JP', sans-serif; font-weight: 900; }
+.kuchikomi_title { background-color: #ff7415; padding: 15px; display: flex; flex-wrap: wrap; margin: 0; }
+.kuchikomi_title_r h3 { font-size: 180%; color: #fff;}
+
+.kuchikomi_box { height: 400px; border:solid 1px #ccc; padding: 3%; overflow-y: scroll; margin: 0 0 3% 0; counter-reset: number 33; }
+.kuchikomi_box li { border-bottom: dashed 1px #ccc; margin-bottom: 15px; padding-bottom: 15px; }
+.kuchikomi_box li::before{
+	counter-increment: number -1;
+	content: "口コミ" counter(number);
+	display: block;
+}
+
+.g_kuchi_star {
+	position:relative;
+	font-size:100%;
+	line-height:1.5;
+	letter-spacing:-.1em;
+	color:#fff;
+	margin:0;
+	padding:0;
+}
+.g_kuchi_star:after {
+	content:"★★★★★";
+	position:absolute;
+	left:0;
+	color:#fc3;
+	width:calc( 4.7em - .1 * ( 4.7em - .1em ) );
+	overflow:hidden;
+	white-space:nowrap;
+}
+
+@media screen and (max-width:1024px){
+	#kuchikomi .main-content { padding:2%; font-family: 'Noto Sans JP', sans-serif; font-style: normal; width:100%; }
+	.g_logo {
+		box-sizing: border-box;
+		width: 120px;
+		background: #fff;
+		padding: 10px ;
+		margin-right: 3px;
+		border-radius: 32px;
+		position: relative;
+	}
+	.g_logo:before {
+		content: '';
+		border: 14px solid transparent;
+		border-bottom-color: #fff;
+		position: absolute;
+		top: 17px;
+		left: -6px;
+		transform: rotate(-23deg);
+		z-index: 1;
+	}
+	.kuchikomi_title_l { width: 100%; }
+	.kuchikomi_title_r { width: 100%; }
+	.kuchikomi_title_r h3 { font-size: 120%; color: #fff;}
+	.kuchikomi_title { background-color: #ff7415; padding: 2%; display: flex; flex-wrap: wrap; margin: 3% 0 0 0; }
+	.kuchikomi_box { height: 300px; border:solid 1px #ccc; margin:0 0 3% 0;}
+	.kuchikomi_box iframe { height: 300px; }
+	.kuchikomi_box li { border-bottom: dashed 1px #ccc; margin-bottom: 15px; padding-bottom: 15px; font-size: 14px; }
+}

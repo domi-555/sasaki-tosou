@@ -11,67 +11,72 @@ import Sideb from "../components/sideb"
 const CasePost = ({data}) => {
   return (
     <>
+      <Seo title={data.microcmsCase.title + " |施工事例"} />
       <Header />
         
       <Layout>
-        <Seo />
+        <div id="mainimage-sub" className='gaiheki'>
+          <div id="mainimage-inner">
+          </div>
+        </div>
 
-            <div id="mainimage-sub" className='gaiheki'>
-                <div id="mainimage-inner">
-                </div>
-            </div>
+        <section id="sub-page">
+          <div className='main-content'>
 
-            <section id="sub-page">
-              <div className='main-content'>
+            <div className="flex-wrap">
+              <div className="main_b">
+                <h2 className="page_title01 mt0">施工事例</h2>
 
-                
+                <h3 className="page_title03 center">{data.microcmsCase.title}</h3>
+                <p><span className="date">{data.microcmsCase.date}</span></p>
 
-                <div className="flex-wrap">
-                  <div className="main_b">
-                    <h2 className="page_title01 mt0">施工事例</h2>
-
-                    <h3 className="case_title">{data.microcmsCase.title}</h3>
-                    <p><span className="date">{data.microcmsCase.date}</span></p>
-
-                    <div className="case_box">
-                      <div className="case_box_l">
-                        <p className="case_title2">before</p>
-                        <img src={data.microcmsCase.maeImg.url} alt="" />
-
-                      </div>
-                      <div className="case_box_r">
-                        <p className="case_title2">after</p>
-                        <img src={data.microcmsCase.atoImg.url} alt="" />
-                      </div>
-                    </div>
-				
-                    <table className="case_table">
-                      <tbody>
-                        <tr>
-                          <th>施工内容</th>
-                          <td></td>
-                        </tr>
-                        <tr>
-                          <th>工期</th>
-                          <td>{data.microcmsCase.casePeriod}</td>
-                        </tr>
-                        <tr>
-                          <th>説明</th>
-                          <td></td>
-                        </tr>
-                      </tbody>
-                    </table>
-
-                    <p className="center"><Link to="/case/" className="bt02">一覧へ戻る</Link></p>
+                <div className="case_box">
+                  <div className="case_box_l">
+                    <p className="case_title2">before</p>
+                    <img src={data.microcmsCase.maeImg.url} alt="" />
 
                   </div>
-                  <Sideb />
+                  <div className="case_box_r">
+                    <p className="case_title2">after</p>
+                    <img src={data.microcmsCase.atoImg.url} alt="" />
+                  </div>
                 </div>
-                
-                
+    
+                <table className="case_table">
+                  <tbody>
+                    <tr>
+                      <th>施工内容</th>
+                      <td
+                      dangerouslySetInnerHTML={{
+                        __html: `${data.microcmsCase.casetxt}`,
+                    }}
+                      />
+                    </tr>
+                    <tr>
+                      <th>工期</th>
+                      <td>{data.microcmsCase.casePeriod}</td>
+                    </tr>
+                    <tr>
+                      <th>説明</th>
+                      <td
+                      dangerouslySetInnerHTML={{
+                        __html: `${data.microcmsCase.caseDescription}`,
+                    }}
+                      />
+                    </tr>
+                  </tbody>
+                </table>
+
+                <p className="center"><Link to={'/' + data.microcmsCase.category.slug + '/'} className="bt02">一覧へ戻る</Link></p>
 
               </div>
-            </section>
+              <div className="side_b">
+                <Sideb />
+              </div>
+            </div>
+
+          </div>
+        </section>
         
         </Layout>
     </>

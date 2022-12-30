@@ -1,16 +1,17 @@
-import React from "react"
+import React from 'react'
 import { graphql,Link } from "gatsby"
 
 import Seo from "../../components/Seo"
 import Header from "../../components/Header"
 import Layout from "../../components/Layout"
-import Sideb from "../../components/sideb"
+import Sideb from '../../components/sideb'
 
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons"
 
-const BlogIndex = ({ data }) => (
+const index = ({data}) => {
+  return (
     <>
     <Header />
     
@@ -29,41 +30,37 @@ const BlogIndex = ({ data }) => (
             <li className="pc"><Link to="https://www.instagram.com/sasaki.ryoko/" target="_blank" className="insta_bt"><span className="insta"><img src="/images/insta_icon.svg" width={25} height={25} className="opa" alt="" /></span></Link></li>
         </ul>
 
-        <div id="mainimage-sub" className='blog'>
+        <div id="mainimage-sub" className='omoide'>
             <div id="mainimage-inner">
             </div>
         </div>
 
         <section id="sub-page">
-        <div className='main-content'>
+            <div className='main-content'>
 
             
 
             <div className="flex-wrap">
             <div className="main_b">
-                <h2 className="page_title01 mt0">ブログ</h2>                
+                <h2 className="page_title01 mt0">思い出のかべ</h2>                
                 <div className="kiji_list">
                 {data.allMicrocmsBlog.edges.map(({ node }) => (
-                  <div className="kiji_box">
-                    <div className="kiji_thumb">
-                    <a href={'/blog/' + node.blogId + '/'}><img src={node.mainimage.url} /></a>
+                    <>
+                    <div className="kiji_box">
+                        <div className='kiji_thumb'><img src={node.mainimage.url} /></div>
+                        <div className="kiji_txt">
+                            <p>{node.date}</p>
+                            <p><a href={'/' + node.category.slug + '/' + node.blogId + '/'} className="kiji_title">{node.title}</a></p>
+                        </div>
                     </div>
-                    <div className="kiji_txt">					
-                      <p class="txt12">{node.date}</p>
-                      <p class="txt12"><a href={'/blog/' + node.blogId}>{node.title}</a></p>
-                      <ul class="cat_list">
-                        <li class="blog-sekou-blog"><a href={'/' + node.category.slug + '/'} class="txt12">{node.category.name}</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  ))}
+                    </>
+                ))}
                 </div>
+
             </div>
-            
             <div className="side_b">
               <Sideb />
             </div>
-            
             </div>
             
             
@@ -72,13 +69,14 @@ const BlogIndex = ({ data }) => (
         </section>
     </Layout>
   </>
-)
+  )
+}
 
-export default BlogIndex
+export default index
 
 export const query = graphql`
 {
-  allMicrocmsBlog(filter: {category: {slug: {eq: "blog"}}}) {
+  allMicrocmsBlog(filter: {category: {slug: {eq: "omoide"}}}) {
     edges {
       node {
         title
@@ -88,10 +86,10 @@ export const query = graphql`
           slug
           name
           id
-        }
+        }        
         excerpt
         mainimage {
-          url
+            url
         }
       }
     }
