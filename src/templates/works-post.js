@@ -16,6 +16,28 @@ const WorksPost = ({ data }) => {
         <div id="mainimage-inner">
         </div>
       </div>
+      <div id="breadcrumb">
+        <ul class="breadcrumb__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+          <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <Link to="/" itemprop="item">
+              <span itemprop="name">ホーム</span>
+            </Link>
+            <meta itemprop="position" content="1" />
+          </li>                
+          <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <Link to={'/' + data.microcmsBlog.category.slug + '/'} itemprop="item">
+              <span itemprop="name">{data.microcmsBlog.category.name}</span>
+            </Link>
+            <meta itemprop="position" content="2" />
+          </li>
+          <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <Link to={'/' + data.microcmsBlog.category.slug + '/' + data.microcmsBlog.blogId + '/'} itemprop="item">
+              <span itemprop="name">{data.microcmsBlog.title}</span>
+            </Link>
+            <meta itemprop="position" content="3" />
+          </li>
+        </ul>
+      </div>
       <section id="sub-page">
         <div className='main-content'>
           <div className="flex-wrap">

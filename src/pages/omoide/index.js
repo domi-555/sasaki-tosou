@@ -18,7 +18,7 @@ const index = ({data}) => {
     <Layout>
         <Seo />    
         
-        <p id="page-top" data-sal="slide-bottom" viewOffset="0.2" data-sal-delay="200" data-sal-easing="ease"><AnchorLink to="/cese/#pagetop" title="Pagetop"><FontAwesomeIcon icon={faChevronUp} /></AnchorLink></p>
+        <p id="page-top" data-sal="slide-bottom" viewOffset="0.2" data-sal-delay="200" data-sal-easing="ease"><AnchorLink to="/omoide/#pagetop" title="Pagetop"><FontAwesomeIcon icon={faChevronUp} /></AnchorLink></p>
 
         <ul className="fix_bn" data-sal="slide-right" viewOffset="0.2" data-sal-delay="300" data-sal-easing="ease">
             <li><Link to="/contact_page/" className="mail_bt"><img src="/images/mail_icon.svg" width={45} height={45} className="opa" alt="" />
@@ -34,6 +34,22 @@ const index = ({data}) => {
             <div id="mainimage-inner">
             </div>
         </div>
+        <div id="breadcrumb">
+          <ul class="breadcrumb__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+            <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+              <Link to="/" itemprop="item">
+                <span itemprop="name">ホーム</span>
+              </Link>
+              <meta itemprop="position" content="1" />
+            </li>
+            <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+              <Link to="/omoide/" itemprop="item">
+                <span itemprop="name">思い出のかべ</span>
+              </Link>
+              <meta itemprop="position" content="2" />
+            </li>
+          </ul>
+        </div>
 
         <section id="sub-page">
             <div className='main-content'>
@@ -47,7 +63,7 @@ const index = ({data}) => {
                 {data.allMicrocmsBlog.edges.map(({ node }) => (
                     <>
                     <div className="kiji_box">
-                        <div className='kiji_thumb'><img src={node.mainimage.url} /></div>
+                        <div className='kiji_thumb'><img src={node.mainimage.url} alt={node.title + 'サムネイル画像'} /></div>
                         <div className="kiji_txt">
                             <p>{node.date}</p>
                             <p><a href={'/' + node.category.slug + '/' + node.blogId + '/'} className="kiji_title">{node.title}</a></p>

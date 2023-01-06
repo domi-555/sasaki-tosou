@@ -15,9 +15,9 @@ const BlogIndex = ({ data }) => (
     <Header />
     
     <Layout>
-        <Seo />    
+        <Seo title="ブログ" />    
         
-        <p id="page-top" data-sal="slide-bottom" viewOffset="0.2" data-sal-delay="200" data-sal-easing="ease"><AnchorLink to="/cese/#pagetop" title="Pagetop"><FontAwesomeIcon icon={faChevronUp} /></AnchorLink></p>
+        <p id="page-top" data-sal="slide-bottom" viewOffset="0.2" data-sal-delay="200" data-sal-easing="ease"><AnchorLink to="/blog/#pagetop" title="Pagetop"><FontAwesomeIcon icon={faChevronUp} /></AnchorLink></p>
 
         <ul className="fix_bn" data-sal="slide-right" viewOffset="0.2" data-sal-delay="300" data-sal-easing="ease">
             <li><Link to="/contact_page/" className="mail_bt"><img src="/images/mail_icon.svg" width={45} height={45} className="opa" alt="" />
@@ -33,6 +33,22 @@ const BlogIndex = ({ data }) => (
             <div id="mainimage-inner">
             </div>
         </div>
+        <div id="breadcrumb">
+            <ul class="breadcrumb__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <Link to="/" itemprop="item">
+                        <span itemprop="name">ホーム</span>
+                    </Link>
+                    <meta itemprop="position" content="1" />
+                </li>
+                <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <Link to="/blog/" itemprop="item">
+                        <span itemprop="name">ブログ一覧</span>
+                    </Link>
+                    <meta itemprop="position" content="2" />
+                </li>
+            </ul>
+        </div>
 
         <section id="sub-page">
         <div className='main-content'>
@@ -46,13 +62,13 @@ const BlogIndex = ({ data }) => (
                 {data.allMicrocmsBlog.edges.map(({ node }) => (
                   <div className="kiji_box">
                     <div className="kiji_thumb">
-                    <a href={'/blog/' + node.blogId + '/'}><img src={node.mainimage.url} /></a>
+                    <a href={'/blog/' + node.category.slug + '/' + node.blogId + '/'}><img src={node.mainimage.url} alt={node.title + 'サムネイル画像'} /></a>
                     </div>
                     <div className="kiji_txt">					
                       <p class="txt12">{node.date}</p>
-                      <p class="txt12"><a href={'/blog/' + node.blogId}>{node.title}</a></p>
+                      <p class="txt12"><a href={'/blog/' + node.category.slug + '/' + node.blogId}>{node.title}</a></p>
                       <ul class="cat_list">
-                        <li class="blog-sekou-blog"><a href={'/' + node.category.slug + '/'} class="txt12">{node.category.name}</a></li>
+                        <li class="blog-sekou-blog"><a href={'/blog/' + node.category.slug + '/'} class="txt12">{node.category.name}</a></li>
                       </ul>
                     </div>
                   </div>
@@ -78,7 +94,9 @@ export default BlogIndex
 
 export const query = graphql`
 {
-  allMicrocmsBlog(filter: {category: {slug: {eq: "blog"}}}) {
+  allMicrocmsBlog(
+    filter: {category: {slug: {nin: "now-working", ne: "tosou-arekore"}, id: {ne: "2gs6q7edc"}}}
+  ) {
     edges {
       node {
         title

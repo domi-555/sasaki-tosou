@@ -6,6 +6,12 @@ exports.createPages = ({ actions, graphql }) => {
 	const { createPage } = actions;
   const caseTemplate = path.resolve('src/templates/case-post.js');
 	const blogTemplate = path.resolve('src/templates/blog-post.js');
+  const familyTemplate = path.resolve('src/templates/family-post.js');
+  const diaryTemplate = path.resolve('src/templates/diary-post.js');
+  const kaisyaTemplate = path.resolve('src/templates/kaisya-post.js');
+  const reportTemplate = path.resolve('src/templates/report-post.js');
+  const localTemplate = path.resolve('src/templates/local-post.js');
+  const newsTemplate = path.resolve('src/templates/news-post.js');
   const worksTemplate = path.resolve('src/templates/works-post.js');
   const omoidesTemplate = path.resolve('src/templates/omoide-post.js');
   const arekoresTemplate = path.resolve('src/templates/arekore-post.js');
@@ -13,10 +19,9 @@ exports.createPages = ({ actions, graphql }) => {
   // Individual blogs pages
 	const blogs = graphql(`
   {
-    blogs:allMicrocmsBlog {
+    blogs:allMicrocmsBlog(filter: {category: {slug: {eq: "weblog"}}}) {
       edges {
-        node {
-          
+        node {          
           blogId
           category {
             slug
@@ -37,8 +42,200 @@ exports.createPages = ({ actions, graphql }) => {
 		// Create blog pages
 		result.data.blogs.edges.forEach(({ node }) => {
         createPage({
-          path:`${node.category.slug}/${node.blogId}/`,
+          path:`/blog/${node.category.slug}/${node.blogId}/`,
           component: blogTemplate,
+        });
+      });
+	});
+
+  // Individual diary pages
+	const diary = graphql(`
+  {
+    diary:allMicrocmsBlog(filter: {category: {slug: {eq: "diary"}}}) {
+      edges {
+        node {          
+          blogId
+          category {
+            slug
+            name
+          }
+          title
+          date(formatString: "YYYY年MM月DD日")
+        }
+      }
+      totalCount
+    }
+  }
+	`).then(result => {
+		if (result.errors) {
+			Promise.reject(result.errors);
+		}
+
+		// Create diary pages
+		result.data.diary.edges.forEach(({ node }) => {
+        createPage({
+          path:`/blog/${node.category.slug}/${node.blogId}/`,
+          component: diaryTemplate,
+        });
+      });
+	});
+
+  // Individual local pages
+	const local = graphql(`
+  {
+    local:allMicrocmsBlog(filter: {category: {slug: {eq: "local-events"}}}) {
+      edges {
+        node {          
+          blogId
+          category {
+            slug
+            name
+          }
+          title
+          date(formatString: "YYYY年MM月DD日")
+        }
+      }
+      totalCount
+    }
+  }
+	`).then(result => {
+		if (result.errors) {
+			Promise.reject(result.errors);
+		}
+
+		// Create local pages
+		result.data.local.edges.forEach(({ node }) => {
+        createPage({
+          path:`/blog/${node.category.slug}/${node.blogId}/`,
+          component: localTemplate,
+        });
+      });
+	});
+
+  // Individual report pages
+	const report = graphql(`
+  {
+    report:allMicrocmsBlog(filter: {category: {slug: {eq: "report"}}}) {
+      edges {
+        node {          
+          blogId
+          category {
+            slug
+            name
+          }
+          title
+          date(formatString: "YYYY年MM月DD日")
+        }
+      }
+      totalCount
+    }
+  }
+	`).then(result => {
+		if (result.errors) {
+			Promise.reject(result.errors);
+		}
+
+		// Create report pages
+		result.data.report.edges.forEach(({ node }) => {
+        createPage({
+          path:`/blog/${node.category.slug}/${node.blogId}/`,
+          component: reportTemplate,
+        });
+      });
+	});
+
+  // Individual kaisya pages
+	const kaisya = graphql(`
+  {
+    kaisya:allMicrocmsBlog(filter: {category: {slug: {eq: "kaisya"}}}) {
+      edges {
+        node {          
+          blogId
+          category {
+            slug
+            name
+          }
+          title
+          date(formatString: "YYYY年MM月DD日")
+        }
+      }
+      totalCount
+    }
+  }
+	`).then(result => {
+		if (result.errors) {
+			Promise.reject(result.errors);
+		}
+
+		// Create kaisya pages
+		result.data.kaisya.edges.forEach(({ node }) => {
+        createPage({
+          path:`/blog/${node.category.slug}/${node.blogId}/`,
+          component: kaisyaTemplate,
+        });
+      });
+	});
+
+  // Individual family pages
+	const family = graphql(`
+  {
+    family:allMicrocmsBlog(filter: {category: {slug: {eq: "family"}}}) {
+      edges {
+        node {          
+          blogId
+          category {
+            slug
+            name
+          }
+          title
+          date(formatString: "YYYY年MM月DD日")
+        }
+      }
+      totalCount
+    }
+  }
+	`).then(result => {
+		if (result.errors) {
+			Promise.reject(result.errors);
+		}
+
+		// Create family pages
+		result.data.family.edges.forEach(({ node }) => {
+        createPage({
+          path:`/blog/${node.category.slug}/${node.blogId}/`,
+          component: familyTemplate,
+        });
+      });
+	});
+
+  // Individual news pages
+	const news = graphql(`
+  {
+    news:allMicrocmsBlog(filter: {category: {slug: {eq: "news"}}}) {
+      edges {
+        node {          
+          blogId
+          category {
+            slug
+            name
+          }
+          title
+          date(formatString: "YYYY年MM月DD日")
+        }
+      }
+      totalCount
+    }
+  }
+	`).then(result => {
+		if (result.errors) {
+			Promise.reject(result.errors);
+		}
+
+		// Create news pages
+		result.data.news.edges.forEach(({ node }) => {
+        createPage({
+          path:`/blog/${node.category.slug}/${node.blogId}/`,
+          component: newsTemplate,
         });
       });
 	});
@@ -49,7 +246,6 @@ exports.createPages = ({ actions, graphql }) => {
     cases:allMicrocmsCase {
       edges {
         node {
-          
           caseId
           category {
             slug
@@ -177,5 +373,5 @@ exports.createPages = ({ actions, graphql }) => {
 	});
 
 	// Return a Promise which would wait for both the queries to resolve
-	return Promise.all([blogs, cases, works, arekores, omoides]);
+	return Promise.all([blogs, cases, works, arekores, omoides,diary,local,report,kaisya,family,news]);
 };

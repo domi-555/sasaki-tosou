@@ -8,10 +8,10 @@ import Header from "../components/Header"
 import Layout from "../components/Layout"
 import Sideb from "../components/sideb"
 
-const BlogPost = ({data}) => {
+const FamilyPost = ({data}) => {
   return (
     <>
-      <Seo title={data.microcmsBlog.title + " | ブログ"} />
+      <Seo title={data.microcmsBlog.title + " | 家族や身内の事"} />
       <Header />
         
       <Layout>
@@ -55,10 +55,10 @@ const BlogPost = ({data}) => {
 
                 <div className="flex-wrap">
                   <div className="main_b">
-                    <h2 className="page_title01 mt0">ブログ</h2>
+                    <h2 className="page_title01 mt0">家族や身内の事</h2>
 
                     <h3 className="page_title03 center">{data.microcmsBlog.title}</h3>
-                    <p><span className="date">{data.microcmsBlog.date}</span></p>
+                    <p><span className="date">{'/blog/' + data.microcmsBlog.date}</span></p>
                     <ul class="cat_list">
                       <li class="blog-sekou-blog"><a href={'/blog/' + data.microcmsBlog.category.slug + '/'} class="txt12">{data.microcmsBlog.category.name}</a></li>
                     </ul>
@@ -84,11 +84,11 @@ const BlogPost = ({data}) => {
   )
 }
 
-export default BlogPost
+export default FamilyPost
 
 export const query = graphql`
 query ($id: String) {
-  microcmsBlog(blogId: {eq: $id}, category: {slug: {eq: "weblog"}}) {
+  microcmsBlog(blogId: {eq: $id}, category: {slug: {eq: "family"}}) {
     blogId
     title
     date(formatString: "YYYY年MM月DD日")

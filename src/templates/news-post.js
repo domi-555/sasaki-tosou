@@ -11,7 +11,7 @@ import Sideb from "../components/sideb"
 const BlogPost = ({data}) => {
   return (
     <>
-      <Seo title={data.microcmsBlog.title + " | ブログ"} />
+      <Seo title={data.microcmsBlog.title + " | お知らせ"} />
       <Header />
         
       <Layout>
@@ -55,7 +55,7 @@ const BlogPost = ({data}) => {
 
                 <div className="flex-wrap">
                   <div className="main_b">
-                    <h2 className="page_title01 mt0">ブログ</h2>
+                    <h2 className="page_title01 mt0">お知らせ</h2>
 
                     <h3 className="page_title03 center">{data.microcmsBlog.title}</h3>
                     <p><span className="date">{data.microcmsBlog.date}</span></p>
@@ -88,7 +88,7 @@ export default BlogPost
 
 export const query = graphql`
 query ($id: String) {
-  microcmsBlog(blogId: {eq: $id}, category: {slug: {eq: "weblog"}}) {
+  microcmsBlog(blogId: {eq: $id}, category: {slug: {eq: "news"}}) {
     blogId
     title
     date(formatString: "YYYY年MM月DD日")

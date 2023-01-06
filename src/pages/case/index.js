@@ -32,6 +32,22 @@ export default function index({data}) {
                 <div id="mainimage-inner">
                 </div>
             </div>
+            <div id="breadcrumb">
+              <ul class="breadcrumb__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                  <Link to="/" itemprop="item">
+                    <span itemprop="name">ホーム</span>
+                  </Link>
+                  <meta itemprop="position" content="1" />
+                </li>
+                <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                  <Link to="/case/" itemprop="item">
+                    <span itemprop="name">施工事例</span>
+                  </Link>
+                  <meta itemprop="position" content="2" />
+                </li>
+              </ul>
+            </div>
 
             <section id="sub-page">
                 <div className='main-content'>                  
@@ -43,7 +59,7 @@ export default function index({data}) {
                         {data.allMicrocmsCase.edges.map(({ node }) => (
                           <div className="kiji_box">
                             <div className="kiji_thumb">
-                                <img src={node.atoImg.url} alt="" />				
+                                <img src={node.atoImg.url} alt={node.title + 'サムネイル画像'} />				
                             </div>
                             <div className="kiji_txt">
                                 <p>{node.date}</p>

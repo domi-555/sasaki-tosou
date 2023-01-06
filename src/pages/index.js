@@ -64,13 +64,7 @@ const Home = ({ data }) => {
     
     <p id="page-top" data-sal="slide-bottom" viewOffset="0.2" data-sal-delay="200" data-sal-easing="ease"><AnchorLink offset="0" to="#pagetop" title="Pagetop"><FontAwesomeIcon icon={faChevronUp} /></AnchorLink></p>
 
-    <ul
-    className="fix_bn"
-    data-sal="slide-right"
-    viewOffset="0.2"
-    data-sal-delay="300"
-    data-sal-easing="ease"
-    >
+    <ul className="fix_bn" data-sal="slide-right" viewOffset="0.2" data-sal-delay="300" data-sal-easing="ease">
       <li><Link to="/contact_page/" className="mail_bt"><img src="/images/mail_icon.svg" width={45} height={45} className="opa" alt="" />
       <span>お問い合わせ</span></Link></li>
       <li><Link to="https://lin.ee/HR9JB00" className="line_bt" target="_blank"><img src="/images/line_icon.svg" width={45} height={45} className="opa" alt="" />
@@ -87,19 +81,31 @@ const Home = ({ data }) => {
           <div className="main-content">
 
             <div className="news_box">
-              <div className="news_l">
+              <div id="news_l">
                 <div className="flex-wrap">
                   <div className="w50p_smp">
                     <h3>NEWS</h3>
                     <h4>お知らせ</h4>
                   </div>
                   <div className="w50p_smp smp">
-                    <GatsbyImage image={data.newsthumb.childImageSharp.gatsbyImageData} alt="オンリーワンの塗り替えで、もっとおうちがすきになる。" />
+                    <StaticImage src="../images/news_thumb.jpg" />
                   </div>
                 </div>
               </div>
-              <div class="news_r">
-                <iframe width="100%" height={350} src="https://sasaki-tosou.co.jp/news.php" title="お知らせ一覧" target="_parent" />
+              <div id="news_r">
+                <dl>
+                  {data.blog.edges.map(({ node }) => (
+                    <>
+                    <p><a href={'/' + node.category.slug + '/' + node.blogId + '/'} target="_parent"></a></p>
+                    <dt>{node.date}</dt>
+                    <dd>
+                      <div className={node.category.slug}><a href={node.category.slug}>{node.category.name}</a></div><br />
+                      <a href={'/' + node.category.slug + '/' + node.blogId + '/'}>{node.title}</a>
+                      <FontAwesomeIcon icon={faAngleRight} />
+                    </dd>
+                    </>
+                  ))}
+                </dl>
               </div>
             </div>
 
@@ -112,17 +118,17 @@ const Home = ({ data }) => {
             <h3 className="title04">安佐北区で安心して任せられる地元の塗装屋さんをお探しの方へ</h3>
 
             <div className="pc">
-              <GatsbyImage image={data.worksbg02.childImageSharp.gatsbyImageData} alt="施工事例イメージ" />
+              <StaticImage src="../images/works_bg02.jpg" alt="施工事例イメージ" />
             </div>
 
             <div className="smp">
-              <h4><GatsbyImage image={data.worksbg02smp.childImageSharp.gatsbyImageData} alt="広島市安佐北区で施工事例913件以上!" /></h4>
+              <h4><StaticImage src="../images/works_bg02_smp.jpg" alt="広島市安佐北区で施工事例913件以上!" /></h4>
             </div>
 
             <div className="works_inner">
 
               <h4 className="center mtb3p pc">
-                <GatsbyImage image={data.workstxt01.childImageSharp.gatsbyImageData} alt="広島市安佐北区で施工事例913件以上!" />
+                <StaticImage src="../images/works_txt01.png" alt="広島市安佐北区で施工事例913件以上!" />
               </h4>
 
               <div>
@@ -171,7 +177,7 @@ const Home = ({ data }) => {
               {data.works.edges.map(({ node }) => (
                 <SwiperSlide>
                 <div className="works_list">
-                  <p><a href={'/' + node.category.slug + '/' + node.blogId + '/'} target="_parent"><img src={node.mainimage.url} /></a></p>
+                  <p><a href={'/' + node.category.slug + '/' + node.blogId + '/'} target="_parent"><img src={node.mainimage.url} alt="" /></a></p>
                   <p className="workstitle"><a href={'/' + node.category.slug + '/' + node.blogId} target="_parent">{node.title}</a></p>
                 </div>
                 </SwiperSlide>
@@ -214,14 +220,12 @@ const Home = ({ data }) => {
 
                 <p className="title05">住宅塗装について不安や<br className="smp" />疑問ありませんか？</p>
                 
-                <div>
-                <StaticImage src="../images/study_pic01.jpg" alt="悪い業者と良い業者の見分け方は？塗料によって何がどう変わるの？見積書の見方がわからない・・・工事後の保証ってどうなるの？" />
-                </div>
+                <div><StaticImage src="../images/study_pic01.jpg" alt="悪い業者と良い業者の見分け方は？塗料によって何がどう変わるの？見積書の見方がわからない・・・工事後の保証ってどうなるの？" /></div>
                 
                 <p className="title06">その疑問、塗り替え勉強会で<br className="smp" />お答えします！</p>
                 
                 <div className="center">
-                  <GatsbyImage image={data.arrow01.childImageSharp.gatsbyImageData} alt="塗り替え勉強会開催日はこちら" />
+                  <StaticImage src="../images/arrow01.png" alt="塗り替え勉強会開催日はこちら" />
                 </div>
                 
                 <div className="study_box">
@@ -789,6 +793,28 @@ query {
   }
 
   works:allMicrocmsBlog(filter: {category: {slug: {eq: "now-working"}}}) {
+    edges {
+      node {
+        title
+        blogId
+        date(formatString: "YYYY年MM月DD日")
+        category {
+          slug
+          name
+          id
+        }
+        body
+        excerpt
+        mainimage {
+          url
+        }
+      }
+    }
+  }
+
+  blog:allMicrocmsBlog(
+    filter: {category: {slug: {nin: "tosou-arekore", ne: "omoide"}}}
+  ) {
     edges {
       node {
         title
