@@ -88,7 +88,7 @@ const Home = ({ data }) => {
                     <h4>お知らせ</h4>
                   </div>
                   <div className="w50p_smp smp">
-                    <StaticImage src="../images/news_thumb.jpg" />
+                    <StaticImage src="../images/news_thumb.jpg" alt="" />
                   </div>
                 </div>
               </div>
