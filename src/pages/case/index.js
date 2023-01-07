@@ -84,28 +84,28 @@ export default function index({data}) {
 
 export const query = graphql`
 {
-    allMicrocmsCase {
-      edges {
-        node {
-          title
-          caseId
-          date(formatString: "YYYY年MM月DD日")
-          category {
-            slug
-            name
-            id
-          }
-          atoImg {
-            url
-          }
-          maeImg {
-            url
-          }
-          casePeriod
-          casetxt
-          caseDescription
+  allMicrocmsCase(limit: 30, sort: {date: DESC}) {
+    edges {
+      node {
+        title
+        caseId
+        date(formatString: "YYYY年MM月DD日")
+        category {
+          slug
+          name
+          id
         }
+        atoImg {
+          url
+        }
+        maeImg {
+          url
+        }
+        casePeriod
+        casetxt
+        caseDescription
       }
     }
   }
+}
 `

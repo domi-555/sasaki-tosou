@@ -177,7 +177,7 @@ const Home = ({ data }) => {
               {data.works.edges.map(({ node }) => (
                 <SwiperSlide>
                 <div className="works_list">
-                  <p><a href={'/' + node.category.slug + '/' + node.blogId + '/'} target="_parent"><img src={node.mainimage.url} alt="" /></a></p>
+                  <p><a href={'/' + node.category.slug + '/' + node.blogId + '/'} target="_parent"><img src={node.mainimage.url} alt={node.title + 'サムネイル画像'} /></a></p>
                   <p className="workstitle"><a href={'/' + node.category.slug + '/' + node.blogId} target="_parent">{node.title}</a></p>
                 </div>
                 </SwiperSlide>
@@ -270,8 +270,8 @@ const Home = ({ data }) => {
                     <SwiperSlide>
                     <div className="case_list">
                       <div class="kanryo_icon"></div>
-                      <div class="kanryo_icon2"><img src="../images/kanryo_icon.png" /></div>
-                      <p><a href={'/case/' + node.caseId} target="_parent"><img src={node.maeImg.url} /></a></p>
+                      <div class="kanryo_icon2"><StaticImage src="../images/kanryo_icon.png" alt="完成！" /></div>
+                      <p><a href={'/case/' + node.caseId} target="_parent"><img src={node.maeImg.url} alt={node.title + 'サムネイル画像'} /></a></p>
                       <p className="workstitle"><a href={'/case/' + node.caseId} target="_parent">{node.title}</a></p>
                     </div>
                     </SwiperSlide>
@@ -768,7 +768,7 @@ query {
     }
   }
 
-  case:allMicrocmsCase {
+  case: allMicrocmsCase(limit: 4, sort: {date: DESC}) {
     edges {
       node {
         title

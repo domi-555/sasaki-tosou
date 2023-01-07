@@ -1335,6 +1335,7 @@ _::-webkit-full-page-media, _:future, :root .souba_l select { background-color: 
 .kiji_thumb img { width:100%; height:auto; object-fit:cover; border:solid 1px #ccc; margin:0!important; transition: all 0.3s ease;}
 .kiji_thumb img:hover { opacity: 0.5; }
 .kiji_txt { width : 60%; padding:3%; font-family: 'Noto Sans JP', sans-serif; font-style: normal; }
+.kiji_txt a { color:#ff7415; }
 .kiji_pic { margin:20px 0; }
 .kiji_pic img { max-width:100%; height:auto; }
 .kiji_title { color:#000; transition: all 0.3s ease; }

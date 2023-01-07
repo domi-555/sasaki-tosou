@@ -34,7 +34,7 @@ const CasePost = ({data}) => {
               <meta itemprop="position" content="2" />
             </li>
             <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-              <Link to={'/' + data.microcmsCase.category.slug + '/' + data.microcmsCase.blogId + '/'} itemprop="item">
+              <Link to={'/' + data.microcmsCase.category.slug + '/' + data.microcmsCase.caseId + '/'} itemprop="item">
                 <span itemprop="name">{data.microcmsCase.title}</span>
               </Link>
               <meta itemprop="position" content="3" />
