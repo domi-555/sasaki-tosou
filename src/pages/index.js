@@ -148,39 +148,10 @@ const Home = ({ data }) => {
 
         <section id="works_list">
           <div className="main-content">
-
             <h3>ただいま施工中！</h3>
-
-            <div className="works_list_wrap">
-
-            <Swiper
-                modules={[Navigation, Pagination]}
-                        spaceBetween={0}  
-                        navigation
-                        pagination={{ clickable: true }}                      
-                        onSlideChange={() => console.log('slide change')}
-                        onSwiper={(swiper) => console.log(swiper)} 
-                        breakpoints={{                          
-                          768: {
-                            slidesPerView: 4
-                          }
-                        }}
-                        autoHeight>
-
-            <div className="works_list_wrap">
-              {data.works.edges.map(({ node }) => (
-                <SwiperSlide>
-                <div className="works_list">
-                  <p><a href={'/' + node.category.slug + '/' + node.blogId + '/'} target="_parent"><img src={node.mainimage.url} /></a></p>
-                  <p className="workstitle"><a href={'/' + node.category.slug + '/' + node.blogId} target="_parent">{node.title}</a></p>
-                </div>
-                </SwiperSlide>
-              ))}
+            <div className="works_cont">
+              <iframe width="100%" height={900} scrolling="no" src="https://sasaki-tosou.co.jp/works.php" title="ただいま施工中一覧" target="_parent" />
             </div>
-            </Swiper>
-
-            </div>
-
           </div>
         </section>
 
@@ -248,31 +219,8 @@ const Home = ({ data }) => {
 
                 <p className="title05 mt3p">施工事例</p>
 
-                <div className="case_list_wrap">
-                <Swiper
-                modules={[Navigation, Pagination]}
-                        spaceBetween={0}  
-                        navigation
-                        pagination={{ clickable: true }}                      
-                        onSlideChange={() => console.log('slide change')}
-                        onSwiper={(swiper) => console.log(swiper)} 
-                        breakpoints={{                          
-                          768: {
-                            slidesPerView: 4
-                          }
-                        }}
-                        autoHeight>
-                  {data.case.edges.map(({ node }) => (
-                    <SwiperSlide>
-                    <div className="case_list">
-                      <div class="kanryo_icon"></div>
-                      <div class="kanryo_icon2"><img src="../images/kanryo_icon.png" /></div>
-                      <p><a href={'/case/' + node.caseId} target="_parent"><img src={node.maeImg.url} /></a></p>
-                      <p className="workstitle"><a href={'/case/' + node.caseId} target="_parent">{node.title}</a></p>
-                    </div>
-                    </SwiperSlide>
-                  ))}
-                  </Swiper>
+                <div className="case_cont">
+                  <iframe width="100%" height={700} src="https://sasaki-tosou.co.jp/cace.php" title="施工事例一覧" target="_parent" />
                 </div>
                 
                 <div className="p3p">
@@ -761,50 +709,6 @@ query {
   paint16: file(relativePath: {eq: "paint_logo16.jpg"}) {
     childImageSharp {
       gatsbyImageData(width: 274, layout: CONSTRAINED)
-    }
-  }
-
-  case:allMicrocmsCase {
-    edges {
-      node {
-        title
-        caseId
-        date(formatString: "YYYY年MM月DD日")
-        category {
-          slug
-          name
-          id
-        }
-        atoImg {
-          url
-        }
-        maeImg {
-          url
-        }
-        casePeriod
-        casetxt
-        caseDescription
-      }
-    }
-  }
-
-  works:allMicrocmsBlog(filter: {category: {slug: {eq: "now-working"}}}) {
-    edges {
-      node {
-        title
-        blogId
-        date(formatString: "YYYY年MM月DD日")
-        category {
-          slug
-          name
-          id
-        }
-        body
-        excerpt
-        mainimage {
-          url
-        }
-      }
     }
   }
 
