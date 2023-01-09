@@ -96,11 +96,11 @@ const Home = ({ data }) => {
                 <dl>
                   {data.blog.edges.map(({ node }) => (
                     <>
-                    <p><a href={'/' + node.category.slug + '/' + node.blogId + '/'} target="_parent"></a></p>
+                    <p><a href={'/blog/' + node.category.slug + '/' + node.blogId + '/'} target="_parent"></a></p>
                     <dt>{node.date}</dt>
                     <dd>
-                      <div className={node.category.slug}><a href={node.category.slug}>{node.category.name}</a></div><br />
-                      <a href={'/' + node.category.slug + '/' + node.blogId + '/'}>{node.title}</a>
+                      <div className={node.category.slug}><a href={'/blog/' + node.category.slug}>{node.category.name}</a></div><br />
+                      <a href={'/blog/' + node.category.slug + '/' + node.blogId + '/'}>{node.title}</a>
                       <FontAwesomeIcon icon={faAngleRight} />
                     </dd>
                     </>
@@ -160,25 +160,25 @@ const Home = ({ data }) => {
             <div className="works_list_wrap">
 
             <Swiper
-                modules={[Navigation, Pagination]}
-                        spaceBetween={0}  
-                        navigation
-                        pagination={{ clickable: true }}                      
-                        onSlideChange={() => console.log('slide change')}
-                        onSwiper={(swiper) => console.log(swiper)} 
-                        breakpoints={{                          
-                          768: {
-                            slidesPerView: 4
-                          }
-                        }}
-                        autoHeight>
+              modules={[Navigation, Pagination]}
+              pagination={{ clickable: true }}
+              navigation
+              onSlideChange={() => console.log('slide change')}
+              onSwiper={(swiper) => console.log(swiper)}
+              breakpoints={{
+                768: {
+                  slidesPerView: 9,
+                }
+              }}
+              autoHeight
+            >
 
             <div className="works_list_wrap">
               {data.works.edges.map(({ node }) => (
                 <SwiperSlide>
                 <div className="works_list">
-                  <p><a href={'/' + node.category.slug + '/' + node.blogId + '/'} target="_parent"><img src={node.mainimage.url} alt={node.title + 'サムネイル画像'} /></a></p>
-                  <p className="workstitle"><a href={'/' + node.category.slug + '/' + node.blogId} target="_parent">{node.title}</a></p>
+                  <p><a href={'/blog/' + node.category.slug + '/' + node.blogId + '/'} target="_parent"><img src={node.mainimage.url} alt={node.title + 'サムネイル画像'} /></a></p>
+                  <p className="workstitle"><a href={'/blog/' + node.category.slug + '/' + node.blogId} target="_parent">{node.title}</a></p>
                 </div>
                 </SwiperSlide>
               ))}
@@ -255,17 +255,17 @@ const Home = ({ data }) => {
                 <div className="case_list_wrap">
                 <Swiper
                 modules={[Navigation, Pagination]}
-                        spaceBetween={0}  
-                        navigation
-                        pagination={{ clickable: true }}                      
-                        onSlideChange={() => console.log('slide change')}
-                        onSwiper={(swiper) => console.log(swiper)} 
-                        breakpoints={{                          
-                          768: {
-                            slidesPerView: 4
-                          }
-                        }}
-                        autoHeight>
+                spaceBetween={0}
+                navigation
+                pagination={{ clickable: true }}
+                onSlideChange={() => console.log('slide change')}
+                onSwiper={(swiper) => console.log(swiper)}
+                breakpoints={{
+                  768: {
+                    slidesPerView: 4,
+                  }
+                }}
+                autoHeight>
                   {data.case.edges.map(({ node }) => (
                     <SwiperSlide>
                     <div className="case_list">
@@ -297,25 +297,25 @@ const Home = ({ data }) => {
 
           <h3>取扱い塗料</h3>
 
-          <p className="mt3p"><GatsbyImage image={data.print01.childImageSharp.gatsbyImageData} alt="取扱い塗料-イメージ" /></p>
+          <p className="mt3p"><StaticImage src="../images/print_img01.png" alt="取扱い塗料-イメージ" /></p>
 
           <ul>
-            <li><GatsbyImage image={data.paint01.childImageSharp.gatsbyImageData} alt="GAINA" /></li>
-            <li><GatsbyImage image={data.paint02.childImageSharp.gatsbyImageData} alt="AGC" /></li>
-            <li><GatsbyImage image={data.paint03.childImageSharp.gatsbyImageData} alt="Adgreencoat" /></li>
-            <li><GatsbyImage image={data.paint04.childImageSharp.gatsbyImageData} alt="日本ペイント" /></li>
-            <li><GatsbyImage image={data.paint05.childImageSharp.gatsbyImageData} alt="エスケー化研" /></li>
-            <li><GatsbyImage image={data.paint06.childImageSharp.gatsbyImageData} alt="水谷ペイント株式会社" /></li>
-            <li><GatsbyImage image={data.paint07.childImageSharp.gatsbyImageData} alt="菊水化学工場株式会社" /></li>
-            <li><GatsbyImage image={data.paint08.childImageSharp.gatsbyImageData} alt="AUTO" /></li>
-            <li><GatsbyImage image={data.paint09.childImageSharp.gatsbyImageData} alt="ASTEC" /></li>
-            <li><GatsbyImage image={data.paint10.childImageSharp.gatsbyImageData} alt="スズカファイン株式会社" /></li>
-            <li><GatsbyImage image={data.paint11.childImageSharp.gatsbyImageData} alt="WB多彩仕上工法" /></li>
-            <li><GatsbyImage image={data.paint12.childImageSharp.gatsbyImageData} alt="株式会社鶴弥" /></li>
-            <li><GatsbyImage image={data.paint13.childImageSharp.gatsbyImageData} alt="IG KOGYO" /></li>
-            <li><GatsbyImage image={data.paint14.childImageSharp.gatsbyImageData} alt="Dee Trading CO.,LTD." /></li>
-            <li><GatsbyImage image={data.paint15.childImageSharp.gatsbyImageData} alt="LIXIL" /></li>
-            <li><GatsbyImage image={data.paint16.childImageSharp.gatsbyImageData} alt="カルセラ" /></li>
+            <li><StaticImage src="../images/paint_logo01.jpg" alt="GAINA" /></li>
+            <li><StaticImage src="../images/paint_logo02.jpg" alt="AGC" /></li>
+            <li><StaticImage src="../images/paint_logo03.jpg" alt="Adgreencoat" /></li>
+            <li><StaticImage src="../images/paint_logo04.jpg" alt="日本ペイント" /></li>
+            <li><StaticImage src="../images/paint_logo05.jpg" alt="エスケー化研" /></li>
+            <li><StaticImage src="../images/paint_logo06.jpg" alt="水谷ペイント株式会社" /></li>
+            <li><StaticImage src="../images/paint_logo07.jpg" alt="菊水化学工場株式会社" /></li>
+            <li><StaticImage src="../images/paint_logo08.jpg" alt="AUTO" /></li>
+            <li><StaticImage src="../images/paint_logo09.jpg" alt="ASTEC" /></li>
+            <li><StaticImage src="../images/paint_logo10.jpg" alt="スズカファイン株式会社" /></li>
+            <li><StaticImage src="../images/paint_logo11.jpg" alt="WB多彩仕上工法" /></li>
+            <li><StaticImage src="../images/paint_logo12.jpg" alt="株式会社鶴弥" /></li>
+            <li><StaticImage src="../images/paint_logo13.jpg" alt="IG KOGYO" /></li>
+            <li><StaticImage src="../images/paint_logo14.jpg" alt="Dee Trading CO.,LTD." /></li>
+            <li><StaticImage src="../images/paint_logo15.jpg" alt="LIXIL" /></li>
+            <li><StaticImage src="../images/paint_logo16.jpg" alt="カルセラ" /></li>
           </ul>
 
           </div>
@@ -325,7 +325,7 @@ const Home = ({ data }) => {
           <div className="main-content">
             <h3>持続可能な開発目標（SDGs）達成への取組み</h3>
             <p className="center">
-              <GatsbyImage image={data.sdgs01.childImageSharp.gatsbyImageData} alt="SUSTAINABLE DEVELOPMENT GOALS" />
+            <StaticImage src="../images/sdg_poster_ja_2021.png" alt="SUSTAINABLE DEVELOPMENT GOALS" />
             </p>
             <p className="center"><Link to="/sdgs/" className="bt01"><FontAwesomeIcon icon={faAngleRight} /> SDGSの取り組みはこちら</Link></p>
           </div>
@@ -334,7 +334,7 @@ const Home = ({ data }) => {
         <section id="soudan">
           <div className="main-content">
 
-            <h3 className="p1p"><GatsbyImage image={data.corona01.childImageSharp.gatsbyImageData} alt="屋根・外装塗装専門店 屋根・壁の痛みが気になるが新型コロナウィルスで後回しになっている方へ" /></h3>
+            <h3 className="p1p"><StaticImage src="../images/corona_img.png" alt="屋根・外装塗装専門店 屋根・壁の痛みが気になるが新型コロナウィルスで後回しになっている方へ" /></h3>
 
           </div>
         </section>
@@ -353,7 +353,6 @@ const Home = ({ data }) => {
           </div>
         </div>
       </section>
-
 
       <Footer />
 
@@ -669,105 +668,6 @@ query {
     }
   }
 
-  print01: file(relativePath: {eq: "print_img01.png"}) {
-    childImageSharp {
-      gatsbyImageData(layout: FULL_WIDTH)
-    }
-  }
-
-  sdgs01: file(relativePath: {eq: "sdg_poster_ja_2021.png"}) {
-    childImageSharp {
-      gatsbyImageData(layout: FULL_WIDTH)
-    }
-  }
-
-  corona01: file(relativePath: {eq: "corona_img.png"}) {
-    childImageSharp {
-      gatsbyImageData(layout: FULL_WIDTH)
-    }
-  }
-
-  paint01: file(relativePath: {eq: "paint_logo01.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(width: 274, layout: CONSTRAINED)
-    }
-  }
-  paint02: file(relativePath: {eq: "paint_logo02.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(width: 274, layout: CONSTRAINED)
-    }
-  }
-  paint03: file(relativePath: {eq: "paint_logo03.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(width: 274, layout: CONSTRAINED)
-    }
-  }
-  paint04: file(relativePath: {eq: "paint_logo04.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(width: 274, layout: CONSTRAINED)
-    }
-  }
-  paint05: file(relativePath: {eq: "paint_logo05.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(width: 274, layout: CONSTRAINED)
-    }
-  }
-  paint06: file(relativePath: {eq: "paint_logo06.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(width: 274, layout: CONSTRAINED)
-    }
-  }
-  paint07: file(relativePath: {eq: "paint_logo07.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(width: 274, layout: CONSTRAINED)
-    }
-  }
-  paint08: file(relativePath: {eq: "paint_logo08.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(width: 274, layout: CONSTRAINED)
-    }
-  }
-  paint09: file(relativePath: {eq: "paint_logo09.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(width: 274, layout: CONSTRAINED)
-    }
-  }
-  paint10: file(relativePath: {eq: "paint_logo10.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(width: 274, layout: CONSTRAINED)
-    }
-  }
-  paint11: file(relativePath: {eq: "paint_logo11.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(width: 274, layout: CONSTRAINED)
-    }
-  }
-  paint12: file(relativePath: {eq: "paint_logo12.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(width: 274, layout: CONSTRAINED)
-    }
-  }
-  paint13: file(relativePath: {eq: "paint_logo13.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(width: 274, layout: CONSTRAINED)
-    }
-  }
-  paint14: file(relativePath: {eq: "paint_logo14.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(width: 274, layout: CONSTRAINED)
-    }
-  }
-  paint15: file(relativePath: {eq: "paint_logo15.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(width: 274, layout: CONSTRAINED)
-    }
-  }
-  paint16: file(relativePath: {eq: "paint_logo16.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(width: 274, layout: CONSTRAINED)
-    }
-  }
-
   case: allMicrocmsCase(limit: 4, sort: {date: DESC}) {
     edges {
       node {
@@ -792,7 +692,12 @@ query {
     }
   }
 
-  works:allMicrocmsBlog(filter: {category: {slug: {eq: "now-working"}}}) {
+  
+  works: allMicrocmsBlog(
+    filter: {category: {slug: {eq: "now-working"}}}
+    limit: 9
+    sort: {date: DESC}
+  ) {
     edges {
       node {
         title
@@ -811,9 +716,12 @@ query {
       }
     }
   }
+  
 
-  blog:allMicrocmsBlog(
+  blog: allMicrocmsBlog(
     filter: {category: {slug: {nin: "tosou-arekore", ne: "omoide"}}}
+    limit: 20
+    sort: {date: DESC}
   ) {
     edges {
       node {

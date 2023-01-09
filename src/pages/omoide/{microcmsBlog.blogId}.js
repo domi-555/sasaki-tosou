@@ -1,17 +1,16 @@
-import React from 'react'
-import { graphql, Link } from "gatsby"
+import React from "react"
+import { Link,graphql } from "gatsby"
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import Header from "../components/Header"
-import Sideb from '../components/sideb'
+import Layout from "../../components/Layout"
+import Seo from "../../components/Seo"
+import Header from "../../components/Header"
+import Sideb from "../../components/sideb"
 
-const omoidePost = ({data}) => {
-  return (
+const BlogPage = ({ data }) => (
     <>
-        <Seo title={data.microcmsBlog.title + " | 思い出のかべ"} />
-        <Header />
-        <Layout>
+    <Seo />
+    <Header />
+    <Layout>
             <div id="mainimage-sub" className='omoide'>
                 <div id="mainimage-inner">
                 </div>
@@ -52,7 +51,7 @@ const omoidePost = ({data}) => {
                             <div className="post_img"><img src={data.microcmsBlog.mainimage.url} /></div>
                             <div
                             dangerouslySetInnerHTML={{
-                                __html: `${data.microcmsBlog.body}`,
+                                __html: `${data.microcmsBlog.excerpt}`,
                             }}
                             />
                                     
@@ -65,27 +64,26 @@ const omoidePost = ({data}) => {
                 </div>
             </section>
         </Layout>
-    </>
-  )
-}
+</>
+)
 
-export default omoidePost
+export default BlogPage
 
 export const query = graphql`
-query ($id: String) {
-    microcmsBlog(blogId: {eq: $id}, category: {slug: {eq: "omoide"}}) {
+  query($id: String) {
+    microcmsBlog(id: { eq: $id }) {
         blogId
-        title
-        date(formatString: "YYYY年MM月DD日")
-        category {
-            slug
-            id
-            name
-        }
-        body
-        mainimage {
-            url
-        }
-    }
-}
+      title
+      excerpt
+      date(formatString: "YYYY年MM月DD日")
+      category {
+        slug
+        id
+        name
+      }
+      mainimage {
+        url
+      }
+      }
+  }
 `

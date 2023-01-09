@@ -2,10 +2,10 @@ import React from 'react'
 
 import { graphql,Link } from "gatsby"
 
-import Seo from "../../components/Seo"
-import Header from "../../components/Header"
-import Layout from "../../components/Layout"
-import Sideb from "../../components/sideb"
+import Seo from "../../../components/Seo"
+import Header from "../../../components/Header"
+import Layout from "../../../components/Layout"
+import Sideb from "../../../components/sideb"
 
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -44,10 +44,16 @@ const index = ({ data }) => {
               <meta itemprop="position" content="1" />
             </li>
             <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-              <Link to="/now-working/" itemprop="item">
+                    <Link to="/blog/" itemprop="item">
+                        <span itemprop="name">ブログ一覧</span>
+                    </Link>
+                    <meta itemprop="position" content="2" />
+                </li>
+            <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+              <Link to="/blog/now-working/" itemprop="item">
                 <span itemprop="name">ただいま施工中</span>
               </Link>
-              <meta itemprop="position" content="2" />
+              <meta itemprop="position" content="3" />
             </li>
           </ul>
         </div>
@@ -65,14 +71,14 @@ const index = ({ data }) => {
                 {data.allMicrocmsBlog.edges.map(({ node }) => (
                   <div className="kiji_box">
                     <div className="kiji_thumb">
-                    <a href={'/' + node.category.slug + '/' + node.blogId + '/'}><img src={node.mainimage.url} alt={node.title + 'サムネイル画像'} /></a>
+                    <a href={'/blog/' + node.category.slug + '/' + node.blogId + '/'}><img src={node.mainimage.url} alt={node.title + 'サムネイル画像'} /></a>
                     </div>
                     <div className="kiji_txt">					
                       <p class="txt12">{node.date}</p>
-                      <p><a className="kiji_title" href={'/' + node.category.slug + '/' + node.blogId + '/'}>{node.title}</a></p>
+                      <p><a className="kiji_title" href={'/blog/' + node.category.slug + '/' + node.blogId + '/'}>{node.title}</a></p>
                       <p className="txt12">{node.excerpt}・・・</p>
                       <ul class="cat_list">
-                        <li class="blog-sekou-blog"><a href={'/' + node.category.slug + '/'} class="txt12">{node.category.name}</a></li>
+                        <li class="blog-sekou-blog"><a href={'/blog/' + node.category.slug + '/'} class="txt12">{node.category.name}</a></li>
                       </ul>
                     </div>
                   </div>

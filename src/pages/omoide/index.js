@@ -102,10 +102,10 @@ export const query = graphql`
           slug
           name
           id
-        }        
+        }
         excerpt
         mainimage {
-            url
+          url
         }
       }
     }
