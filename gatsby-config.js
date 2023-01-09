@@ -79,26 +79,7 @@ module.exports = {
         },
       },
     },
-
-    {
-      resolve: 'gatsby-source-microcms',
-      options: {
-        apiKey: process.env.API_KEY,
-        serviceId: 'sasaki-tosou',
-        apis: [
-          {
-            endpoint: 'case',
-          },
-          {
-            endpoint: 'category',
-          },
-          {
-            endpoint: "blog",
-          },
-        ],
-      },
-    },
-
+    
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
