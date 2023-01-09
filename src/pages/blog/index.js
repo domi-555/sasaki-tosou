@@ -65,10 +65,11 @@ const BlogIndex = ({ data }) => (
                     <a href={'/blog/' + node.category.slug + '/' + node.blogId + '/'}><img src={node.mainimage.url} alt={node.title + 'サムネイル画像'} /></a>
                     </div>
                     <div className="kiji_txt">					
-                      <p class="txt12">{node.date}</p>
-                      <p class="txt12"><a href={'/blog/' + node.category.slug + '/' + node.blogId}>{node.title}</a></p>
-                      <ul class="cat_list">
-                        <li class="blog-sekou-blog"><a href={'/blog/' + node.category.slug + '/'} class="txt12">{node.category.name}</a></li>
+                      <p className="txt12">{node.date}</p>
+                      <p><a href={'/blog/' + node.category.slug + '/' + node.blogId}>{node.title}</a></p>
+                      <p className="txt12">{node.excerpt}・・・</p>
+                      <ul className="cat_list">
+                        <li className={node.category.slug}><a href={'/blog/' + node.category.slug + '/'} className="txt12">{node.category.name}</a></li>
                       </ul>
                     </div>
                   </div>
@@ -96,6 +97,7 @@ export const query = graphql`
 {
   allMicrocmsBlog(
     filter: {category: {slug: {nin: "now-working", ne: "tosou-arekore"}, id: {ne: "2gs6q7edc"}}}
+    sort: {date: DESC}
   ) {
     edges {
       node {

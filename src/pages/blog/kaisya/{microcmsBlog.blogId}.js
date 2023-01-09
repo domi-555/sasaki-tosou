@@ -57,23 +57,12 @@ const KaisyaPage = ({ data }) => (
                     </ul>
                     <div className="post_img"><img src={data.microcmsBlog.mainimage.url} /></div>
 
-                    <p className="center">--------------------ここからリッチテキスト--------------------</p>
+                    
                     <div
                       dangerouslySetInnerHTML={{
                         __html: `${data.microcmsBlog.body}`,
                       }}
-                      />
-
-<p className="center">--------------------ここまでリッチテキスト--------------------</p>
-
-<p className="center">--------------------ここからテキストエリア--------------------</p>
-
-                    <div
-                          dangerouslySetInnerHTML={{
-                            __html: `${data.microcmsBlog.blogtxt}`,
-                          }}
-                        />
-                        <p className="center">--------------------ここまでテキストエリア--------------------</p>
+                    />
 
                     <p className="center"><Link to={'/blog/' + data.microcmsBlog.category.slug + '/'} className="bt01">一覧へ戻る</Link></p>
                   </div>
@@ -105,7 +94,6 @@ export const query = graphql`
         mainimage {
           url
         }
-        blogtxt
     }
   }
 `

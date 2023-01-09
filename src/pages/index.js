@@ -271,7 +271,7 @@ const Home = ({ data }) => {
                     <div className="case_list">
                       <div class="kanryo_icon"></div>
                       <div class="kanryo_icon2"><StaticImage src="../images/kanryo_icon.png" alt="完成！" /></div>
-                      <p><a href={'/case/' + node.caseId} target="_parent"><img src={node.maeImg.url} alt={node.title + 'サムネイル画像'} /></a></p>
+                      <p><a href={'/case/' + node.caseId} target="_parent"><img src={node.atoImg.url} alt={node.title + 'サムネイル画像'} /></a></p>
                       <p className="workstitle"><a href={'/case/' + node.caseId} target="_parent">{node.title}</a></p>
                     </div>
                     </SwiperSlide>
