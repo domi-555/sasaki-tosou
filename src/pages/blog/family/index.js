@@ -98,7 +98,11 @@ export default index
 
 export const query = graphql`
 {
-    allMicrocmsBlog(filter: {category: {slug: {eq: "family"}}}) {
+    allMicrocmsBlog(
+      filter: {category: {slug: {eq: "family"}}}
+      sort: {date: DESC}
+      limit: 50
+      ) {
       edges {
         node {
           title

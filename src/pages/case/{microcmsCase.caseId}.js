@@ -5,12 +5,19 @@ import Layout from "../../components/Layout"
 import Seo from "../../components/Seo"
 import Header from "../../components/Header"
 import Sideb from "../../components/sideb"
+import Pagetop from "../../components/Pagetop"
+
+import { AnchorLink } from "gatsby-plugin-anchor-links";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faChevronUp } from "@fortawesome/free-solid-svg-icons"
 
 const BlogPage = ({ data }) => (
     <>
     <Seo title={data.microcmsCase.title} />
     <Header />
     <Layout>
+    <p id="page-top" data-sal="slide-bottom" viewOffset="0.2" data-sal-delay="200" data-sal-easing="ease"><AnchorLink to={'/' + data.microcmsCase.category.slug + '/' + data.microcmsCase.caseId + '/#pagetop'} title="Pagetop"><FontAwesomeIcon icon={faChevronUp} /></AnchorLink></p>
+      <Pagetop />
             <div id="mainimage-sub" className='omoide'>
                 <div id="mainimage-inner">
                 </div>

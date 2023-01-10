@@ -98,23 +98,27 @@ export default index
 
 export const query = graphql`
 {
-    allMicrocmsBlog(filter: {category: {slug: {eq: "local-events"}}}) {
-      edges {
-        node {
-          title
-          blogId
-          date(formatString: "YYYY年MM月DD日")
-          category {
-            slug
-            name
-            id
-          }
-          excerpt
-          mainimage {
-            url
-          }
+  allMicrocmsBlog(
+    filter: {category: {slug: {eq: "local-events"}}}
+    sort: {date: DESC}
+    limit: 50
+  ) {
+    edges {
+      node {
+        title
+        blogId
+        date(formatString: "YYYY年MM月DD日")
+        category {
+          slug
+          name
+          id
+        }
+        excerpt
+        mainimage {
+          url
         }
       }
     }
   }
+}
 `

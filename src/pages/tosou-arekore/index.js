@@ -91,7 +91,11 @@ export default index
 
 export const query = graphql`
 {
-  allMicrocmsBlog(filter: {category: {slug: {eq: "tosou-arekore"}}}) {
+  allMicrocmsBlog(
+    filter: {category: {slug: {eq: "tosou-arekore"}}}
+    limit: 50
+    sort: {date: ASC}
+  ) {
     edges {
       node {
         title
@@ -101,10 +105,10 @@ export const query = graphql`
           slug
           name
           id
-        }        
+        }
         excerpt
         mainimage {
-            url
+          url
         }
       }
     }

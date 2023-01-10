@@ -5,16 +5,23 @@ import Layout from "../../../components/Layout"
 import Seo from "../../../components/Seo"
 import Header from "../../../components/Header"
 import Sideb from "../../../components/sideb"
+import Pagetop from '../../../components/Pagetop'
+
+import { AnchorLink } from "gatsby-plugin-anchor-links";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faChevronUp } from "@fortawesome/free-solid-svg-icons"
 
 const BlogPage = ({ data }) => (
     <>
     <Seo title={data.microcmsBlog.title} />
     <Header />
-  <Layout>
-  <div id="mainimage-sub" className='now_working'>
-  <div id="mainimage-inner">
-  </div>
-</div>
+    <Layout>
+      <p id="page-top" data-sal="slide-bottom" viewOffset="0.2" data-sal-delay="200" data-sal-easing="ease"><AnchorLink to={'/blog/' + data.microcmsBlog.category.slug + '/' + data.microcmsBlog.blogId + '/#pagetop'} title="Pagetop"><FontAwesomeIcon icon={faChevronUp} /></AnchorLink></p>
+      <Pagetop />
+      <div id="mainimage-sub" className='now_working'>
+        <div id="mainimage-inner">
+        </div>
+      </div>
 <div id="breadcrumb">
   <ul class="breadcrumb__list" itemscope itemtype="https://schema.org/BreadcrumbList">
     <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
@@ -54,7 +61,7 @@ const BlogPage = ({ data }) => (
         <ul class="cat_list">
           <li class="blog-sekou-blog"><a href={'/blog/' + data.microcmsBlog.category.slug + '/'} class="txt12">{data.microcmsBlog.category.name}</a></li>
         </ul>
-        <div className="post_img"><img src={data.microcmsBlog.mainimage.url} /></div>
+        <div className="post_img"><img src={data.microcmsBlog.mainimage.url} alt="" /></div>
         <div
         dangerouslySetInnerHTML={{
             __html: `${data.microcmsBlog.body}`,
